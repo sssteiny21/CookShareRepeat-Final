@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="Recipes" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CookShareRepeat</title>   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
+   <script src="main.js"></script>  
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+   <link rel="stylesheet" href="style.css">   
+</head>
+  
+<body>
+  <header class="container-fluid header">
+   <h1> <span style="COLOR:#339900;">COOK</span>&dagger;SHARE&dagger;<span style="COLOR: #339900;">REPEAT</span>
+   </h1>
+  </header>
+       
+<nav class="navbar navbar-default">
+ <div class="container-fluid" style="background:lightgreen; text:white;">
+    <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-                    expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+  </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav container-fluid" style="color: white">
+        <li><a href="#/">HOME</a></li>
+        <li><a href="#/aboutus">ABOUT US</a></li>
+        <li><a href="#/families">FAMILIES</a></li>
+        <li><a href="#/recipeoftheday">RECIPE OF THE DAY</a></li>
+        <li><a href="#/searchingredients">SEARCH INGREDIENTS</a></li>
+        <li><a href="#/blog">BLOG</a></li>
+        <li><a href="#/contactus">CONTACT US</a></li>
+       <!-- Button to open the modal login form -->
+        <li>
+          <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+        </li>
+   </div> 
+<!-- The Modal -->
+  <div id="id01" class="modal">
+   <span onclick="document.getElementById('id01').style.display='none'" 
+        class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+   <form class="modal-content animate" action="action_page.php">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+   </form>
+  </div>
+</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+   <ng-view>
+     
+   </ng-view>
+
+
+
