@@ -8,7 +8,7 @@ angular.module('Recipes')
 Router.$inject = ['$routeProvider']; // Inject component from ngRoute
 
 function Router ($routeProvider) {
-  
+console.log("hello")  
   $routeProvider
     .when('/', {
       templateUrl   : '/home.html', // URL on your server that leads to an html file to be used for this page
@@ -18,16 +18,20 @@ function Router ($routeProvider) {
     .when('/aboutus', {
       templateUrl   : '/aboutus.html',
       controller    : 'aboutus',
-      controllerAS  : 'aCtrl'
+      controllerAs  : 'aCtrl'
     })
     .when('/families', {
       templateUrl   : '/families.html',    
     })
     .when('/recipeoftheday', {
-      templateUrl   : '/recipeoftheday.html',      
+      templateUrl   : '/recipeoftheday.html',  
+      controller    : 'receive',
+      controllerAs  : 'rCtrl'
     })
     .when('/submitrecipe', {
-      templateUrl   : '/submitrecipe.html',       
+      templateUrl   : '/submitrecipe.html',
+      controller    : 'submit',
+      controllerAs  : 'sCtrl'
     })
     .when('/blog', {
       templateUrl   : '/blog.html',      
@@ -48,6 +52,94 @@ function main () {
   hCtrl.content = " ";
   
 }
+
+//SUBMIT and RECIEVE RECIPE PROCESS
+
+//SUBMIT CONTROLLER//
+angular.module('Recipes')
+  .controller('submit', submission)
+
+submission.$inject = ["RecipeFactory"];
+
+function submission (RecipeFactory) {
+  
+  var sCtrl = this;
+  
+sCtrl.thingsinrecipe = RecipeFactory.things;
+sCtrl.newRecipe = {}
+console.log(sCtrl)
+sCtrl.addRecipe = function(){
+  console.log("Adding new recipe...")
+  sCtrl.thingsinrecipe.push(sCtrl.newRecipe);
+  sCtrl.newRecipe = {};
+}
+}
+
+
+//RECIEVE CONTROLLER//
+angular.module('Recipes')
+  .controller('receive', receiving)
+
+receiving.$inject = ["RecipeFactory"];
+
+function receiving (RecipeFactory) {
+  
+  var rCtrl = this;
+  console.log("RecipeFactory", RecipeFactory)
+rCtrl.thingsinrecipe = RecipeFactory.things;
+}
+
+
+
+//RECIPE FACTORY//
+angular.module('Recipes')
+  .factory("RecipeFactory", listFactory);
+           
+function listFactory () {
+  var thingsinrecipe = [
+    {
+      name : "Stoney",
+      email : "sIcelander@aol.com", 
+      recipe : [
+        "Home Grown Tomatoes",
+        "Peppers (Habanero, Jalepeno,Serrano,Chili, Cherry Bomb Thai, Heat Wave, Hungarian Wax, 6         kinds of sweet peppers.)",
+        "Corn",
+        "Black Beans",
+        "Tomato Paste",
+        "Onions",
+        "Salt",
+        "Red Wine Vinegar",
+        "Brown Sugar",
+        "Lime Juice",
+        "Spices",
+      ]
+    },
+    {
+      name : "Glenna",
+      email : "glenna1948",
+      recipe : [
+          "2 Cans whole kernel corn, drained",
+          "1 to 1.5 c. mayonnaise (not Miracle Whip)",
+          "1/4 tsp. cumin or to taste",
+          "1 jalepeno pepper, seeded and chopped fine",
+          "1 sweet onion, chopped",
+          "2 c. shredded Mexican cheese",
+          "Lime taco chips or plain taco chips",
+          "Mix corn, mayonnaise, cumin, jalepeno pepper, onion and cheese together. Chill and               serve with chips.",
+      ]
+    },
+    
+  ];
+ 
+  
+  //   ALL FACTORIES MUST HAVE A RETURN STATEMENT!
+  return {
+    things : thingsinrecipe
+  }
+  
+}
+
+
 
 
 

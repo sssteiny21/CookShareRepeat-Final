@@ -1,12 +1,51 @@
-<body>
-  <body>
+
 <div id="primary">
   <h1>Submit your recipe!</h1>
 <br/>
    <div class="row">
     <div class="col-md-8">
-      <form>
+      <form class="inline form">
         <table width="500">
+          <tbody>
+            <tr>
+            <td width="100">Your Name:</td>
+             <td><input 
+                 ng-model="sCtrl.newRecipe.name"
+                 class="form-control" 
+                 type="text" 
+                 placeholder="text-holder">
+             </td>
+            </tr>
+            <tr>
+            <td width="100">Your Email:</td>
+             <td><input 
+                 ng-model="sCtrl.newRecipe.email"
+                 class="form-control" 
+                 type="text" 
+                 placeholder="text-holder">
+             </td>  
+            </tr>
+            <tr>
+            <td height="300">Your Recipe:</td>
+              <td>
+              <textarea
+                 ng-model="sCtrl.newRecipe.recipe"
+                 class="form-control" rows="15" columns="90" 
+                 type="text" 
+                 placeholder="text-holder"></textarea>
+              </td>
+            </tr> 
+          <div id="secondary" class="col-md-4">This side column is where the families pages will live! </div>
+        </tbody>
+       </table>
+     </form>
+  <p>&nbsp;</p>
+  <button ng-click="sCtrl.addRecipe()">Submit</button>
+   </div>
+  
+         <!-- <button ng-click="yCtrl.addToy()" class="btn btn-info">Add Collectible</button>
+          
+          
           <tbody>
             <tr>
             <td width="100">Your Name:</td>
@@ -27,8 +66,9 @@
        </table>
      </form>
   <p>&nbsp;</p>
-  <button style="center-align" onclick="document.getElementById('id01').style.display='block'">Submit</button>
+  <button onclick="document.getElementById('id01').style.display='block'">Submit</button>
    </div>
+-->
 
 
   
@@ -52,4 +92,3 @@
 </form>
 </footer>
 </div>   
-  </body>
