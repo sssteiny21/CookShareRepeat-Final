@@ -3,6 +3,32 @@
   text-align: center;
   padding: 20px;
 }
+#primary  {
+  background-color:gray;
+  float: left;
+  width: 100%;
+  margin: 0 -33% 0 0;
+}
+#secondary   {
+  background-color:lightcoral;
+  width: 30%;
+}
+.logo {
+  height: 45%;
+  width: 45%;
+}
+
+.primary {
+    
+  }
+
+.entry-content {
+  width: 60%;
+  background-color: yellow;
+  
+  
+}
+
 .body {
   font-family: sans-serif;
 }

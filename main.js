@@ -17,6 +17,8 @@ function Router ($routeProvider) {
   })
     .when('/aboutus', {
       templateUrl   : '/aboutus.html',
+      controller    : 'aboutus',
+      controllerAS  : 'aCtrl'
     })
     .when('/families', {
       templateUrl   : '/families.html',    
@@ -24,8 +26,8 @@ function Router ($routeProvider) {
     .when('/recipeoftheday', {
       templateUrl   : '/recipeoftheday.html',      
     })
-    .when('/searchingredients', {
-      templateUrl   : '/searchingredients.html',       
+    .when('/submitrecipe', {
+      templateUrl   : '/submitrecipe.html',       
     })
     .when('/blog', {
       templateUrl   : '/blog.html',      
@@ -43,8 +45,12 @@ function main () {
   var hCtrl = this;
   
   hCtrl.greeting = "Welcome to your new favorite Recipe Site";
+  hCtrl.content = " ";
   
 }
+
+
+
 
 
 
