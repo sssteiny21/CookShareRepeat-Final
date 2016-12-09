@@ -9,22 +9,32 @@
   width: 100%;
   margin: 0 -33% 0 0;
 }
+#content {
+  width: 60%;
+  background-color: yellow;
+}
 #secondary   {
   background-color:lightcoral;
   width: 30%;
+  float: right;
+}
+#footer {
+  background-color: red;
+  float: left;
+  width: 100%;
+  text-align: center;
+    
 }
 .logo {
-  height: 45%;
-  width: 45%;
+  height: 50%;
+  width: 50%;
 }
 
 .primary {
     
   }
 
-.entry-content {
-  width: 60%;
-  background-color: yellow;
+
   
   
 }
