@@ -19,24 +19,37 @@
   float: right;
 }
 #footer {
-  background-color: red;
+  border-style: solid;
+  border-color: black;
   float: left;
   width: 100%;
   text-align: center;
-    
 }
+.right-navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 60px;
+}
+
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+
 .logo {
-  height: 50%;
-  width: 50%;
+  height: 300px;
+  width: 300px;
 }
+
 
 .primary {
     
-  }
-
-
-  
-  
 }
 
 .body {
@@ -48,6 +61,10 @@ button {
   margin: 20px; 10px; 20px; 10px;
   color: white;
  
+}
+navbar {
+  margin: 0;
+  border: 0;
 }
 
 /* W3 schools code for login modal*/

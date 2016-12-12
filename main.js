@@ -100,33 +100,36 @@ function listFactory () {
     {
       name : "Stoney",
       email : "sIcelander@aol.com", 
-      recipe : [
-        "Home Grown Tomatoes",
-        "Peppers (Habanero, Jalepeno,Serrano,Chili, Cherry Bomb Thai, Heat Wave, Hungarian Wax, 6         kinds of sweet peppers.)",
-        "Corn",
-        "Black Beans",
-        "Tomato Paste",
-        "Onions",
-        "Salt",
-        "Red Wine Vinegar",
-        "Brown Sugar",
-        "Lime Juice",
-        "Spices",
-      ]
+      ingredients : [
+        "Home Grown Tomatoes, Peppers (Habanero, Jalepeno,Serrano,Chili, Cherry           Bomb Thai, Heat Wave, Hungarian Wax, 6 kinds of sweet peppers.). Corn,           Black Beans, Tomato Paste,Onions, Salt, Red Wine Vinegar, Brown Sugar,           Lime Juice, Spices" ],
+      directions : ["dice all ingredients and pressure can accordingly"],
     },
     {
       name : "Glenna",
       email : "glenna1948",
-      recipe : [
+      ingredients : [
           "2 Cans whole kernel corn, drained",
           "1 to 1.5 c. mayonnaise (not Miracle Whip)",
           "1/4 tsp. cumin or to taste",
           "1 jalepeno pepper, seeded and chopped fine",
           "1 sweet onion, chopped",
           "2 c. shredded Mexican cheese",
-          "Lime taco chips or plain taco chips",
-          "Mix corn, mayonnaise, cumin, jalepeno pepper, onion and cheese together. Chill and               serve with chips.",
-      ]
+          "Lime taco chips or plain taco chips" ],
+      directions :["Mix corn, mayonnaise, cumin, jalepeno pepper, onion and             cheese together. Chill and serve with chips.",],
+    },
+    {
+      name : "Steve",
+      email : "sssteiny21@gmail.com",
+      ingredients : [
+        "2 cups shredded cooked chicken", 
+        "1 (8 oz. pkg.) cream cheese, softened",
+        "1/2 cup FRANK'S RedHot® Original Cayenne Pepper Sauce or FRANK'S RedHot®         Buffalo Wings Sauce", 
+        "1/2 cup Hidden Valley® Original Ranch® Dressing",
+        "1/2 cup crumbled bleu cheese or your favorite shredded cheese", 
+        ],
+       directions  :["PREHEAT oven to 350°F. COMBINE all ingredients and spoon into shallow 1-quart baking dish.BAKE 20 minutes or until mixture is heated through; stir. Garnish with chopped green onions if desired. Serve with crackers and/or vegetables.", 
+        ],
+                     
     },
     
   ];

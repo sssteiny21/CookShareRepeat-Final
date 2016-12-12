@@ -1,22 +1,57 @@
-  <div id="primary">
+<body>
+<div id="primary">
 <h1>Welcome to the Recipe of the Day!</h1>
 <br/>
 <div id="primary">
   <div class="row">
-    <div class="col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email. </div>
-    <div id="secondary" class="col-md-4">This side column is where the families pages will live! </div>
+    <div class="col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email. 
+    </div>
+    <div id="secondary" class="col-md-4">This side column is where the families pages will live! 
+     <div class="row">
+       <h4>Family Pages</h4>
+      <ul>
+       <li>Steinolfsons</li>
+       <li>Ottens</li>
+       <li>Buxengards</li>
+       <li>Culver</li>
+       <li>Cameron</li>
+       <li>Heck</li>
+       <li>Penn</li>
+       <li>Steinolfsons</li>
+       <li>Steinolfsons</li>
+       <li>Steinolfsons</li>
+      </ul>
+     </div>
+    </div>
   </div>
-</div>
+  </div>
 
 
 <div id="primary">
-    <h1>Most recent recipe submitted</h1>
-  {{rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1]}}
-</div>
+ <div class="row">
+   <div class="col-md-8">
+   <h3>Most recent recipe submitted</h3>
+    <ul>
+      <li>   
+     {{rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1]}}
+      </li>
     
-<div id="primary">
-<h4 style="COLOR: black;"> Your Recipes of the Day</h1>
+    <li ng-repeat="recipe in rCtrl.thingsinrecipe">
+      {{"Name:" + recipe.name}} <br>
+      <text>Email:   </text><a href="mailto:sssteiny21@gmail.com">                         {{recipe.email}}</a><br> 
+      {{"Ingredients:" + recipe.ingredients}} <br> 
+      {{"Directions:" + recipe.directions}}<br>
+    </li>    
+   </ul>
+  </div>
+ </div>
+</div>
 <hr/>
+  
+<div id="primary">
+  <div class="row">
+   <div class="col-md-8">  
+<h4 style="COLOR: black;"> Your Highest Rated recipe</h4>
 <h2> Steingrimur's Corn and Black Bean Salsa </h2>
 <dl>
 <dt></dt>
@@ -31,26 +66,11 @@ Brown Sugar<br/>
 Lime Juice<br/>
 Spices</dd>
 </dl>
-<h6> Steingrimur "Stoney" Steinolfson </h6>
- 
-<hr/>
-<hr/>
-<h2> Corn Dip with Taco Chips </h2>
-<ul>
-<li> 2 Cans whole kernel corn, drained</li>
-<li>1 to 1.5 c. mayonnaise (not Miracle Whip)</li>
-<li>1/4 tsp. cumin or to taste</li>
-<li>1 jalepeno pepper, seeded and chopped fine</li>
-<li>1 sweet onion, chopped</li>
-<li>2 c. shredded Mexican cheese</li>
-<li>Lime taco chips or plain taco chips</li>
-</ul>
-<p>Mix corn, mayonnaise, cumin, jalepeno pepper, onion and cheese together. Chill and serve with chips.<br/></p>
-<h6> Glenna Steinolfson </h6>
-<hr/>
-
- </div>
+    </div>
+  </div>
+</div>
   
+<!--FOOTER--> 
 <div id="footer"> 
   <h6>Get weekly recipes, delivered to your inbox!</h6>
 <footer>      
@@ -62,12 +82,16 @@ Spices</dd>
   <div class="form-group">
     <label for="exampleInputEmail2">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+    <button type="submit" class="btn btn-default" style="margin: 0; border: 0;">Submit</button>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-  <p>This page Copyright &copy;2009 Steven Shane Steinolfson</p>
-</footer>
+ </form>
+  <br/>
+  <p>This page Copyright &copy;2009 / Steven Shane Steinolfson / All Rights Reserved / <a href="cooksharerepeat.com">www.cooksharerepeat.com</a></p>
+  </footer>
 </div> 
     
-    </div>
+</div>
+
+
+</body>
 
