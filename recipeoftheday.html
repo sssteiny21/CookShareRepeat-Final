@@ -1,6 +1,6 @@
 <body>
 <div id="primary">
-<h1>Welcome to the Recipe of the Day!</h1>
+<h1>Choose your recipe!</h1>
 <br/>
 <div id="primary">
   <div class="row">
@@ -32,17 +32,24 @@
    <div class="col-md-8">
    <h3>Most recent recipe submitted</h3>
     <ul>
+      <hr/>
       <li>   
-     {{rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1]}}
-      </li>
-    
-    <li ng-repeat="recipe in rCtrl.thingsinrecipe">
-      {{"Name:" + recipe.name}} <br>
-      <text>Email:   </text><a href="mailto:sssteiny21@gmail.com">                         {{recipe.email}}</a><br> 
-      {{"Ingredients:" + recipe.ingredients}} <br> 
-      {{"Directions:" + recipe.directions}}<br>
-    </li>    
-   </ul>
+      <b>Name:</b> {{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].name}} <br>
+      <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].email}}</a><br>
+      <b>Ingredients:</b>{{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].ingredients}} <br>
+      <b>Directions:</b>{{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].directions}} <br>
+      </li> 
+      <hr/>
+     </ul>
+   <h3>Popular Recipes</h3> 
+     <ul>
+      <li ng-repeat="recipe in rCtrl.thingsinrecipe">
+      <b>Name:</b>{{"Name:" + recipe.name}} <br>
+      <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{recipe.email}}</a><br> 
+      <b>Ingredients:</b>{{"" + recipe.ingredients}} <br> 
+      <b>Directions:</b>{{"" + recipe.directions}}<br>
+      </li>    
+     </ul>
   </div>
  </div>
 </div>
@@ -50,8 +57,9 @@
   
 <div id="primary">
   <div class="row">
-   <div class="col-md-8">  
-<h4 style="COLOR: black;"> Your Highest Rated recipe</h4>
+   <div class="col-md-8"> 
+     <hr/>
+<h4 style="COLOR: black;">Recipe of the month!!</h4>
 <h2> Steingrimur's Corn and Black Bean Salsa </h2>
 <dl>
 <dt></dt>

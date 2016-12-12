@@ -32,12 +32,25 @@
   display: block;
   width: 60px;
 }
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+  
+  
 
 
 /* Change the link color on hover */
-li a:hover {
-    background-color: #555;
-    color: white;
+li:hover, a:hover {
+    background-color: lightgray;
+    color: black;
 }
 
 
@@ -46,12 +59,6 @@ li a:hover {
   height: 300px;
   width: 300px;
 }
-
-
-.primary {
-    
-}
-
 .body {
   font-family: sans-serif;
 }
