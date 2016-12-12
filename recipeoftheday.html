@@ -1,12 +1,10 @@
 <body>
 <div id="primary">
-<h1>Choose your recipe!</h1>
-<br/>
+<h3>Find your recipe!</h3>
 <div id="primary">
   <div class="row">
-    <div class="col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email. 
-    </div>
-    <div id="secondary" class="col-md-4">This side column is where the families pages will live! 
+    <div class="col-xs-8 col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email. </div>
+    <div id="secondary" class="col-xs-4 col-md-4">
      <div class="row">
        <h4>Family Pages</h4>
       <ul>
@@ -29,12 +27,13 @@
 
 <div id="primary">
  <div class="row">
-   <div class="col-md-8">
+   <div class="col-xs-8 col-md-8">
    <h3>Most recent recipe submitted</h3>
     <ul>
       <hr/>
       <li>   
       <b>Name:</b> {{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].name}} <br>
+      <b>Creator:</b> {{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].creator}} <br>
       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].email}}</a><br>
       <b>Ingredients:</b>{{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].ingredients}} <br>
       <b>Directions:</b>{{"" + rCtrl.thingsinrecipe[rCtrl.thingsinrecipe.length - 1].directions}} <br>
@@ -44,7 +43,8 @@
    <h3>Popular Recipes</h3> 
      <ul>
       <li ng-repeat="recipe in rCtrl.thingsinrecipe">
-      <b>Name:</b>{{"Name:" + recipe.name}} <br>
+      <b>Name:</b>{{"" + recipe.name}} <br>
+      <b>Creator:</b>{{"" + recipe.creator}} <br>
       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{recipe.email}}</a><br> 
       <b>Ingredients:</b>{{"" + recipe.ingredients}} <br> 
       <b>Directions:</b>{{"" + recipe.directions}}<br>
@@ -57,11 +57,12 @@
   
 <div id="primary">
   <div class="row">
-   <div class="col-md-8"> 
+   <div class="col-xs-8 col-md-8"> 
      <hr/>
-<h4 style="COLOR: black;">Recipe of the month!!</h4>
-<h2> Steingrimur's Corn and Black Bean Salsa </h2>
-<dl>
+<h3>Recipe of the month!!</h3>
+<h3>Steingrimur's Corn and Black Bean Salsa </h3> 
+<ul>
+  <dl>
 <dt></dt>
 <dd>Home Grown Tomatoes and Peppers (Habanero, Jalepeno,Serrano,Chili, Cherry Bomb Thai, Heat Wave, Hungarian Wax, 6 kinds of sweet peppers.)<br/>
 Corn<br/>
@@ -73,30 +74,13 @@ Red Wine Vinegar<br/>
 Brown Sugar<br/>
 Lime Juice<br/>
 Spices</dd>
+  </ul>
 </dl>
     </div>
   </div>
 </div>
   
-<!--FOOTER--> 
-<div id="footer"> 
-  <h6>Get weekly recipes, delivered to your inbox!</h6>
-<footer>      
-      <form class="form-inline">
-  <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail2">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-    <button type="submit" class="btn btn-default" style="margin: 0; border: 0;">Submit</button>
-  </div>
- </form>
-  <br/>
-  <p>This page Copyright &copy;2009 / Steven Shane Steinolfson / All Rights Reserved / <a href="cooksharerepeat.com">www.cooksharerepeat.com</a></p>
-  </footer>
-</div> 
+
     
 </div>
 

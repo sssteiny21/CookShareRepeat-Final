@@ -1,25 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa');
+
+
 .header {
-  background-color: green;
+  background: linear-gradient(to right, darkgreen, lightgreen); /* Standard syntax */
   text-align: center;
+  text-shadow: 2px 2px lightgray;
   padding: 20px;
 }
 #primary  {
-  background-color:gray;
   float: left;
   width: 100%;
   margin: 0 -33% 0 0;
 }
-#content {
-  width: 60%;
-  background-color: yellow;
-}
 #secondary   {
-  background-color:lightcoral;
   width: 30%;
   float: right;
 }
 #footer {
   border-style: solid;
+  background: linear-gradient(to right, darkgreen, lightgreen); 
   border-color: black;
   float: left;
   width: 100%;
@@ -52,13 +51,26 @@ li:hover, a:hover {
     background-color: lightgray;
     color: black;
 }
-
+h3 {
+  font-family: 'Aref Ruqaa', serif;
+}
+h4 {
+  font-family: 'Aref Ruqaa', serif;
+  text-decoration: underline;
+}
 
 
 .logo {
   height: 300px;
   width: 300px;
 }
+.logo1 {
+  height: 400px;
+  width: 700px;
+  display: block;
+  
+}
+
 .body {
   font-family: sans-serif;
 }

@@ -1,17 +1,26 @@
 <body>
 <div id="primary">
-  <h1>Submit your recipe!</h1>
+  <h3>Submit your recipe!</h3>
 <br/>
   <div id="primary">
    <div class="row">
-    <div class="col-md-8">
-      <form class="inline form">
+    <div>
+      <form class="inline form col-xs-8 col-md-8">
         <table width="500">
           <tbody>
             <tr>
-            <td width="100">Your Name:</td>
+            <td width="100">Recipe Name:</td>
              <td><input 
                  ng-model="sCtrl.newRecipe.name"
+                 class="form-control" 
+                 type="text" 
+                 placeholder="text-holder">
+             </td>
+            </tr>
+            <tr>
+            <td width="100">Creator:</td>
+             <td><input 
+                 ng-model="sCtrl.newRecipe.creator"
                  class="form-control" 
                  type="text" 
                  placeholder="text-holder">
@@ -27,7 +36,7 @@
              </td>  
             </tr>
             <tr>
-            <td height="200">Your ingredients:</td>
+            <td height="200">Your Ingredients:</td>
               <td>
               <textarea
                  ng-model="sCtrl.newRecipe.ingredients"
@@ -50,12 +59,13 @@
           
         </tbody>
        </table>
+        <button ng-click="sCtrl.addRecipe()">Submit</button>
      </form>
-  <p>&nbsp;</p>
-  <button ng-click="sCtrl.addRecipe()">Submit</button>
+  <br/>
+   
    </div>
   
-  <div id="secondary" class="col-md-4">This side column is where the families pages will live! 
+  <div id="secondary" class="col-xs-4 col-md-4">
     <div class="row">
        <h4>Family Pages</h4>
       <ul>
@@ -76,24 +86,6 @@
  </div>
 
   
-  <!--FOOTER-->
-  <div id="footer"> 
-  <h6>Get weekly recipes, delivered to your inbox!</h6>
-      <footer>      
-      <form class="form-inline">
-  <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail2">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-  </div>
-  <button type="submit" class="btn btn-default" style="margin:0; border:0;">Submit</button>
-    </form>
-    <br/>
-  <p>This page Copyright &copy;2009 / Steven Shane Steinolfson / All Rights Reserved / <a href="cooksharerepeat.com">www.cooksharerepeat.com</a></p>
-    </footer>
-  </div> 
+  
 </div>
 </body>

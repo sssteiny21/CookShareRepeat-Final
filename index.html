@@ -14,13 +14,15 @@
 </head>
   
 <body>
+  <!--HEADER-->
   <header class="container-fluid header">
    <h1> <span style="COLOR:#339900;">COOK</span>&dagger;SHARE&dagger;<span style="COLOR: #339900;">REPEAT</span>
    </h1>
   </header>
 
-<nav class="navbar navbar-default" style="margin: 0px; background:lightgreen;">
- <div class="container-fluid" style="background:lightgreen;">
+  <!--NAV BAR-->
+<nav class="navbar navbar-default" style="margin: 0px;">
+ <div class="container-fluid" style="background: lightgreen">
     <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header container-fluid">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-                    expanded="false">
@@ -74,12 +76,33 @@
     </div>
    </form>
   </div>
-</div><!-- /.navbar-collapse -->
+ </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
    
    <ng-view>
      
    </ng-view>
-  </body>
+  
+  <!--FOOTER-->
+  <div id="footer"> 
+  <h6>Get weekly recipes, delivered to your inbox!</h6>
+<footer>      
+      <form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">Name</label>
+    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+    <button type="submit" class="btn btn-default" style="margin:0; border:0;">Submit</button>
+  </div>
+  
+</form>
+  <br/>
+  <p>This page Copyright &copy;2009 / Steven Shane Steinolfson / All Rights Reserved / <a href="cooksharerepeat.com">www.cooksharerepeat.com</a></p>
+</footer>
+</div>   
+</body>
 </html>

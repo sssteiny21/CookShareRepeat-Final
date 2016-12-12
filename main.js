@@ -98,14 +98,16 @@ angular.module('Recipes')
 function listFactory () {
   var thingsinrecipe = [
     {
-      name : "Stoney",
+      name : "Corn and Black Bean Salsa",
+      creator : "Stoney",
       email : "sIcelander@aol.com", 
       ingredients : [
         "Home Grown Tomatoes, Peppers (Habanero, Jalepeno,Serrano,Chili, Cherry           Bomb Thai, Heat Wave, Hungarian Wax, 6 kinds of sweet peppers.). Corn,           Black Beans, Tomato Paste,Onions, Salt, Red Wine Vinegar, Brown Sugar,           Lime Juice, Spices" ],
       directions : ["dice all ingredients and pressure can accordingly"],
     },
     {
-      name : "Glenna",
+      name : "Corn Dip with Tortilla Chips",
+      creator : "Glenna",
       email : "glenna1948",
       ingredients : [
           "2 Cans whole kernel corn, drained",
@@ -118,7 +120,8 @@ function listFactory () {
       directions :["Mix corn, mayonnaise, cumin, jalepeno pepper, onion and             cheese together. Chill and serve with chips.",],
     },
     {
-      name : "Steve",
+      name : "Buffalo Chicked Dip",
+      creator : "Steiny",
       email : "sssteiny21@gmail.com",
       ingredients : [
         "2 cups shredded cooked chicken", 
@@ -141,6 +144,7 @@ function listFactory () {
   }
   
 }
+
 
 
 
