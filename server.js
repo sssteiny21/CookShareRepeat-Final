@@ -1,11 +1,62 @@
-var express = require('express');
-var PORT = process.env.PORT || 8080;
+require('colors');
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    morgan = require('morgan')('dev'),
+    routes = require('./routes'),
+    logger = require('logger'),
+    PORT = process.env.PORT || 1414,
+    app = express(),
+    mongoose = require('mongoose').connect('mongodb://localhost/CookingFinal',
+(mongooseErr) => {
+      if(mongooseErr) {
+        console.error('#ERROR#'.red,'Could not initialize mongoose!', mongooseErr);
+      } else {
+        console.info('Mongoose initialized!'.green.bold);
+      }
+    }),
+    sessions = require('client-sessions')({
+      cookieName : "userAuth",
+      secret : "steiny",
+      requestKey : "session",
+      cookie : {
+        httpOnly : true
+      }
+    }),
+      //encrypted cookies
+    routes = require('./routes'),
+    PORT = process.env.PORT || 1414,
+    app = express();
+   
 
-var app = express(); // Create an application object
+// Connect to DB
+mongoose.connect("mongodb://localhost/recipes", (err)=>{
+  if(err){
+    return console.log("DB failed to connect".trap);
+  }
+  console.log("☃☃ DB Connected ☃☃".cyan);
+});
 
-// app.use are executed for every request the server receives
-app.use(express.static('Public')); // If a URL that is requested matches a filepath that is INSIDE of the public folder.  Express will automatically send that file down to the browser
+// Middleware
+app.use(
+  logger,
+  sessions,
+  morgan,
+  express.static('public'),
+  bodyParser.json(),
+  bodyParser.urlencoded({extended : true}),
+  (req, res, next) =>{
+    console.log('SESSION : ', '${req.session.uid}');
+    next();
+  }
+ );
 
-app.listen(PORT, ()=>{
-  console.log(`Server running on port ${PORT}`);
+// Routes
+routes(app);
+
+// Listen
+app.listen(PORT, (err)=>{
+  if(err){
+    return console.log(`Our Server DIED ☃`.red.bold);
+  }
+  console.log(`☃☃ Server running on ${PORT} ☃☃`.green.bold);
 });

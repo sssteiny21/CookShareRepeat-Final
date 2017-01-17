@@ -1,9 +1,6 @@
 //routing directive for cooksharerepeat//
-angular.module('Recipes', ['ngRoute']);
-
-// In order to use ngRoute as our router, we have to define what routes it should be looking for
-angular.module('Recipes')
-  .config(Router);
+angular.module('Recipes', ['ngRoute'])
+  .config(Router);  // In order to use ngRoute as our router, we have to define what routes it should be looking for
 
 Router.$inject = ['$routeProvider']; // Inject component from ngRoute
 
@@ -93,7 +90,7 @@ rCtrl.thingsinrecipe = RecipeFactory.things;
 
 //RECIPE FACTORY//
 angular.module('Recipes')
-  .factory("RecipeFactory", listFactory);
+  .factory("RecipeFactory", listFactory);   //You can also call something called .service instead of /factory.  You can inject it RefipeFactory.$inject = ['$http] and it returns 'this
            
 function listFactory () {
   var thingsinrecipe = [
