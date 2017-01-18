@@ -1,4 +1,4 @@
-var Recipe = require('./models/recipes');
+var Recipe = require('../models/recipes');
 
 module.exports = {
   get : (req, res) => {

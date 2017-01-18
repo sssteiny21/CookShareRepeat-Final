@@ -1,3 +1,5 @@
+const SALTY_BITS = 10; //10 for strength is usually enough
+
 var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs');
 
@@ -21,7 +23,7 @@ var userSchema = mongoose.Schema({
 //AUTHENTICATION
 
 // hash passwords before saving a new user 
-User.pre('save', function(next) { // don't use an arrow function here, we need the scope!
+userSchema.pre('save', function(next) { // don't use an arrow function here, we need the scope!
     var user = this; // this is why we can't use an arrow function  here, again we need the scope
 
     // only hash the password if it has been modified (for updating users)
@@ -29,7 +31,7 @@ User.pre('save', function(next) { // don't use an arrow function here, we need t
         return next();
     }
     // generate a salt value to encrypt our password
-    bcrypt.genSalt(11, (saltErr, salt) => { // used to guarentee uniqueness
+    bcrypt.genSalt(SALTY_BITS, (saltErr, salt) => { // used to guarentee uniqueness
         if(saltErr) {
             return next(saltErr);
         }
@@ -42,7 +44,7 @@ User.pre('save', function(next) { // don't use an arrow function here, we need t
                 return next(hashErr);
             }
             // over-ride the plain text password with the hashed one
-            user.pass = hashedPassword;
+            user.pwd = hashedPassword;
             next();
         });
     });

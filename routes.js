@@ -1,10 +1,10 @@
-var Auth = require('./controllers/auth'),
+var //Auth = require('./controllers/auth'),
     express = require('express'),
     Families = require('./controllers/familyCtrl'),  //grab your controllers 
     Users    = require('./controllers/userCtrl'),
     Recipes  = require('./controllers/recipeCtrl'),
-    User = require('./models/users'),
-    Middleware = require('./middleware');
+    User = require('./models/user');
+    //Middleware = require('./middleware');
 
 module.exports = (app) =>{
   
@@ -22,7 +22,7 @@ module.exports = (app) =>{
     
   })
  
-  //  Authentication routes
+ /* //  Authentication routes
   app.get('/logout', Auth.logout);        // logout route + redirect
   app.get('./logout', (req, res)=>{
     req.session.reset(); //this destroys user session
@@ -33,7 +33,7 @@ module.exports = (app) =>{
   app.post('/register', Auth.register);   // register form submission
 
   app.get('/dashboard.html', Auth.session);  //dashoboard for each user
-  app.use(express.static('public'));
+  app.use(express.static('public'));*/
 
   
 

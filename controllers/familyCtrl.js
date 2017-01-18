@@ -1,6 +1,7 @@
-var Family = require('./models/family');
+var Family = require('../models/family');
 
 module. exports = {
+  
   get : (req, res) => {
     
     if(req.params.id){
