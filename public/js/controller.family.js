@@ -5,8 +5,9 @@ familyCtrl.$inject = ["$routeParams", "$http"];  //routeParams is basically req.
 
 function familyCtrl ($routeParams, $http) {
   var fCtrl = this;
-  
+
   console.log($routeParams); //make sure to console log so you can debug easier
+
   fCtrl.getFamily = function(){
     $http({
       method : 'GET',
@@ -15,7 +16,7 @@ function familyCtrl ($routeParams, $http) {
       fCtrl.family = resp.data;
     })
   }
-  
+
   fCtrl.getUsers = function(){
     $http({
       method  : 'GET',

@@ -3,10 +3,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     morgan = require('morgan')('dev'),
     routes = require('./routes'),
-    logger = require('logger'),
+    //logger = require('logger'),
     PORT = process.env.PORT || 1414,
     app = express(),
-    
+
     mongoose = require('mongoose').connect('mongodb://localhost/CookingFinal',
    (mongooseErr) => {
       if(mongooseErr) {
@@ -15,7 +15,7 @@ var express = require('express'),
         console.info('Mongoose initialized!'.green.bold);
       }
     }),
-    
+
     sessions = require('client-sessions')({
       cookieName : "userAuth",
       secret : "steiny",
@@ -28,7 +28,7 @@ var express = require('express'),
     routes = require('./routes'),
     PORT = process.env.PORT || 1414,
     app = express();
-   
+
 
 // Connect to DB
 mongoose.connect("mongodb://localhost/recipes", (err)=>{
@@ -40,7 +40,7 @@ mongoose.connect("mongodb://localhost/recipes", (err)=>{
 
 // Middleware
 app.use(
-  logger,
+  //logger,
   sessions,
   morgan,
   express.static('public'),

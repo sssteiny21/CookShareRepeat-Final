@@ -1,37 +1,69 @@
-<body>
 <div id="primary">
-<h3>Register to create your family domain</h3>
+<h3>Register to create your User Page</h3>
 <br/>
 <div id="primary">
   <div class="row">
    <div class="col-xs-8 col-md-8">
-    <form>
+
+     <!--LOGIN FORM-->
+     <form ng-submit="auth.login.submit($event)">
+      <h4>Login!</h4>
+      <div class="form-group">
+      <label>Email</label>
+      <input required placeholder="Email" type="text" class="form-control" ng-model="auth.payloads.login.email">
+      </div>
+      <div class="form-group">
+      <label for="password">Password</label>
+      <input required placeholder="Enter a password" type="password" class="form-control" ng-model="auth.payloads.login.password">
+      </div>
+    </form>
+
+<!--REGISTER FORM-->
+    <form ng-submit="sCtrl.submitUser()">
+        <h1>Register!</h1>
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1"        placeholder="Email">
+    <label>First Name</label>
+    <input ng-model="sCtrl.newUser.firstName" required placeholder="Name" type="text" class="form-control" >
     </div>
     <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control"                               id="exampleInputPassword1" placeholder="Password">
+    <label>Last Name</label>
+    <input ng-model="sCtrl.newUser.lastName" required placeholder="Name" type="text" class="form-control" >
     </div>
     <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Upload a family picture</p>
+    <label>Email</label>
+    <input ng-model="sCtrl.newUser.email" required placeholder="Email" type="text" class="form-control" >
     </div>
+    <div class="form-group">
+    <label for="password">Password</label>
+    <input ng-model="sCtrl.newUser.password" required placeholder="Create a password" type="password" class="form-control" >
+    </div>
+    <div class="form-group">
+    <label>State</label>
+    <input ng-model="sCtrl.newUser.state" required placeholder="Name" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+    <label>Country</label>
+    <input ng-model="sCtrl.newUser.country" required placeholder="Name" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+    <label>Family Name</label>
+    <input ng-model="sCtrl.newUser.family" required placeholder="Name" type="text" class="form-control" >
+    </div>
+
     <div class="checkbox">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
+
     </form>
   </div>
  </div>
-</div>  
-  
+</div>
+
   <div id="secondary" class="col-xs-4 col-md-4">
      <div class="row">
        <h4>Family Pages</h4>
       <ul>
-       <li ng-show="#"><a href="#"></a>Steinolfsons</li>
+       <li ng-show=""><a href="#"></a>Steinolfsons</li>
        <li><a href="#"></a>Ottens</li>
        <li><a href="#"></a>Buxengards</li>
        <li><a href="#"></a>Culver</li>
@@ -43,12 +75,21 @@
        <li><a href="#"></a>Steinolfsons</li>
       </ul>
      </div>
-    </div>  
+     <div class="row">
+         <h4>Our Users</h4>
+        <ul>
+         <li ng-show=""><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Ottens</li>
+         <li><a href="#"></a>Buxengards</li>
+         <li><a href="#"></a>Culver</li>
+         <li><a href="#"></a>Cameron</li>
+         <li><a href="#"></a>Heck</li>
+         <li><a href="#"></a>Penn</li>
+         <li><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Steinolfsons</li>
+        </ul>
+       </div>
+    </div>
 
 <!--THIS IS THE FORM TO COLLECT EMAIL -->
-
-</body>
-
-
-
-

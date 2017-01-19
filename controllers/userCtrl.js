@@ -1,4 +1,5 @@
-var User = require('../models/user'),
+var User = require('../models/userauth'),
+    Family = require('../models/family'),
     bcrypt = require('bcryptjs'),
     errors = {
       general: {
@@ -16,10 +17,11 @@ module.exports = {   //all routes need to be in object we will export to our rou
     req.session.reset(); //clears the cookie session
     res.redirect('home.html');
   },
-  
+
   login: (req, res) => {  //this is the submission/login request for your users entering your site
     //console.info('auth.login.signin', req.body);
-    
+    console.info('auth.login.payload:', req.body);
+
     User.findOne({
       email: req.body.email.toLowerCase
     }, (err, user) => {
@@ -51,26 +53,86 @@ module.exports = {   //all routes need to be in object we will export to our rou
             }
         });
   },
-  
+  /*create: (req, res) => {
+      console.info('Register payload:'.cyan, req.body);
+
+      var newUser = new User(req.body);
+
+      newUser.save((err, user) => {
+          if( err ) {
+              console.error('#ERROR#'.red, 'Could not save new user :(', err);
+              res.status(500).send(errors.general);
+          } else {
+              console.log('New user created in MongoDB:', user);
+              req.session.uid = user._id; // this is what keeps our user session on the backend!
+              res.send({ message: 'Register success' }); // send a success message
+          }
+      });
+  }, */
+
+  /*session: (req, res, next) => {
+      if( req.session.uid ) {
+          console.info('User is logged in, proceeding to dashboard...'.green);
+          next();
+      } else {
+          console.warn('User is not logged in!'.yellow)
+          res.redirect('/home.html');
+      }
+  },*/
+
   create: (req, res) =>{  //creating a new user
-    
-    req.body.email = req.body.email.toLowerCase();
+    // First, find the family we need to assign the user to
+
+            Family.findOne({name : req.body.family}, (err, fam)=>{
+                if (fam){
+                    // we found a family!
+                    req.body.family = fam._id // reassign the id to the family property on the object that will become our new user
+
+                    // Regular user creation flow!
+                    var newUser = new User(req.body)
+                    newUser.save((err, user)=>{
+                        res.send(doc)
+                    })
+                }
+                else{
+                    // no family :(
+
+                    // So let's make one!
+                    var newFam = new Family({
+                        name : req.body.family // what the user typed into the form
+                    })
+
+                    newFam.save((err, fam)=>{
+                        req.body.family = fam._id
+                        // Regular user creation flow!
+                        var newUser = new User(req.body)
+                        newUser.save((err, user)=>{
+                            res.send(user); //this sends the document we just saved to the database
+                        })
+                    })
+
+                }
+            })
+
+        },
+
+    /*req.body.email = req.body.email.toLowerCase();
     var newUser = new User(req.body);  //it's fine to pass in req.body however you can literally pass name, email etc, but as long as req.body matches your user object it's fine
-    
+
     newUser.save((err, user)=>{
       if(err) {
         return res.send(err);
-      }      
-      req.session.userID = user._id;
-      res.send(user);  //this sends teh document we just saved above in tthe database
+      }
+      req.session.uid = user._id;
+      res.send(user);  //this sends the document we just saved above in tthe database
     });
-  },
-  
+  },*/
+
   get : (req, res) =>{
     //this function is to Get One User
     // route is /api/user/(user _id)
     if(req.params.id){
-      User.findOne({_id : 
+      User.findOne({_id :
      req.params.id}).populate('family').exec((err, user)=>{  //you can find by an attribute, this one is simply finding by the _id
         if(err){
           return res.send(err)
@@ -79,9 +141,9 @@ module.exports = {   //all routes need to be in object we will export to our rou
           res.send(user)
         }
         else{
-          res.send({noUser : 'No user found here'});  
+          res.send({noUser : 'No user found here'});
         }
-        
+
       });
   }
     //this function below is to get many Users
@@ -92,7 +154,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
     for(var param in req.query){
       query[param] = req.query[param];
     }
-    
+
     User
       .find(query)
       .populate('family', 'name')
@@ -104,6 +166,6 @@ module.exports = {   //all routes need to be in object we will export to our rou
       res.send(users);
     });
   }
-    
+
 },
 }

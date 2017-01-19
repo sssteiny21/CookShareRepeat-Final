@@ -1,14 +1,63 @@
 angular.module('Cooking')
-  .controller('profileCtrl', profileCtrl)
+  .controller('auth.controller', Auth)
 
-profileCtrl.$inject = ["$routeParams", "$http"];
+Auth.$inject = ["$routeParams", "$http"];
 
 //again, $routeParams is basically req.params(backend) for Angular(frontend routing)
 
-function profileCtrl ($routeParams, $http) {
-  var pCtrl = this;
-  
+function Auth ($routeParams, $http) { //window.userCtrl
+  console.info('User controller loaded!');
+
+  var auth = this;
+
   console.log($routeParams); //console log everything to help with debugging
+
+  auth.payloads = {
+      login: {},
+      register: {}
+  };
+
+  auth.login = {
+      // happens when the user clicks submit on the login form
+      submit: function($event) { // click-event
+          console.info('auth.login.submit', $event);
+
+          $http.post('/login', auth.payloads.login)
+              .then(auth.login.success, auth.login.error);
+              // brandon reminds you, that a wiffle bat will strike you if you forget your error callback!
+      },
+      success: function(res) { // server response callback
+          // when login is successful, redirect them into the dashboard
+          console.info('auth.login.success', res.data);
+          location.href = '/profile.html';
+      },
+      error: function(err) {
+          console.error('Login.error', err);
+
+          // user feedback stuffs, sets up the alert box on error
+          auth.login.message = ( err.data && err.data.message ) || 'Login failed, contact us!';
+      }
+  };
+
+  auth.register = {
+      submit: function () {
+          // happens when the user clicks submit on the register form
+          $http.post('/register', auth.payloads.register)
+              .then(auth.register.success, auth.register.error);
+      },
+      success: function(res) {
+          // when register is successful, just redirect them into the dashboard (already logged in)
+          console.info('auth.register.success', res.data);
+          location.href = "/profile.html";
+      },
+      error: function(err) {
+          console.error('auth.register.error', err);
+          // user feedback stuffs, sets up the alert box on error
+          auth.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!';
+      }
+  };
+
+
   pCtrl.getUserProfile = function(){
     $http({
       method  : 'GET',
@@ -17,8 +66,8 @@ function profileCtrl ($routeParams, $http) {
       pCtrl.user = response.data;
     })
     }
-  
+
   pCtrl.getUserProfile();   //you must always call your controller function
-  
-  
+
+
 }

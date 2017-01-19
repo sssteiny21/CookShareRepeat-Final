@@ -11,14 +11,16 @@
   float: left;
   width: 100%;
   margin: 0 -33% 0 0;
+
 }
 #secondary   {
   width: 30%;
   float: right;
+  display: inline-block;
 }
 #footer {
   border-style: solid;
-  background: linear-gradient(to right, darkgreen, lightgreen); 
+  background: linear-gradient(to right, darkgreen, lightgreen);
   border-color: black;
   float: left;
   width: 100%;
@@ -50,8 +52,8 @@
 input[type=text]:focus {
     width: 100%;
 }
-  
-  
+
+
 
 
 /* Change the link color on hover */
@@ -74,9 +76,9 @@ h4 {
 }
 .logo1 {
   height: 400px;
-  width: 700px;
+  width: 500px;
   display: block;
-  
+
 }
 
 .body {
@@ -87,7 +89,7 @@ button {
   padding: 10px; 20px; 10px; 20px;
   margin: 20px; 10px; 20px; 10px;
   color: white;
- 
+
 }
 navbar {
   margin: 0;
@@ -123,7 +125,7 @@ navbar {
     /* Position it in the top right corner outside of the modal */
     position: absolute;
     right: 25px;
-    top: 0; 
+    top: 0;
     color: #000;
     font-size: 35px;
     font-weight: bold;
@@ -143,12 +145,12 @@ navbar {
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
+    from {-webkit-transform: scale(0)}
     to {-webkit-transform: scale(1)}
 }
 
 @keyframes animatezoom {
-    from {transform: scale(0)} 
+    from {transform: scale(0)}
     to {transform: scale(1)}
 }
 /*End of W3 schools login modal style */

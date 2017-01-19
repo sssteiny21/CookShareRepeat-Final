@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
   firstName : String,
   lastName  : String,
   email     : {type : String, required : true, unique : true},
-  pwd       : {type : String, required : true},
+  password       : {type : String, required : true},
   state     : String,
   country   :String,
   family    : {
@@ -17,12 +17,12 @@ var userSchema = mongoose.Schema({
   dateJoined: {
     type : Number,
     default : () => {return Date.now()}
-  },  
+  },
 });
 
 //AUTHENTICATION
 
-// hash passwords before saving a new user 
+// hash passwords before saving a new user
 userSchema.pre('save', function(next) { // don't use an arrow function here, we need the scope!
     var user = this; // this is why we can't use an arrow function  here, again we need the scope
 
@@ -44,7 +44,7 @@ userSchema.pre('save', function(next) { // don't use an arrow function here, we 
                 return next(hashErr);
             }
             // over-ride the plain text password with the hashed one
-            user.pwd = hashedPassword;
+            user.password = hashedPassword;
             next();
         });
     });

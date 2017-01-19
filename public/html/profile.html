@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="module.profileController">
+ <head>
+   <title>Your Profile</title>
+   <script src="/js/module.profile.js"></script>
+ </head>
+<body ng-controller="profileController as Profile" class="container">
+<h1 class="text-center">
+  {{pCtrl.user.firstName}} {{pCtrl.user.lastName}}
+</h1>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-6">
+      Email : {{pCtrl.user.email}}
+    </div>
+    <div class="col-xs-6">
+      State : {{pCtrl.user.state}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      Country : {{pCtrl.user.country}}
+    </div>
+    <div class="col-xs-6">
+      Family : <a href="/famlies/{{pCtrl.user.family._id}}">{{pCtrl.user.family.name}}</a>
+
+    </div>
+
+  </div>
+  <p><a href="/logout" class="btn btn-lg btn-danger">Logout</a></p>
+</div>
+</body>
+</html>

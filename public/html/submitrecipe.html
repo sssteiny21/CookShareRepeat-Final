@@ -1,70 +1,69 @@
-<body>
 <div id="primary">
   <h3>Submit your recipe!</h3>
 <br/>
   <div id="primary">
    <div class="row">
     <div>
-      <form class="inline form col-xs-8 col-md-8">
-        <table width="500">
+      <form ng-submit="sCtrl.addRecipe()" class="inline form col-xs-8 col-md-8">
+        <table width="400">
           <tbody>
             <tr>
             <td width="100">Recipe Name:</td>
-             <td><input 
+             <td><input
                  ng-model="sCtrl.newRecipe.name"
-                 class="form-control" 
-                 type="text" 
+                 class="form-control"
+                 type="text"
                  placeholder="text-holder">
              </td>
             </tr>
             <tr>
             <td width="100">Creator:</td>
-             <td><input 
+             <td><input
                  ng-model="sCtrl.newRecipe.creator"
-                 class="form-control" 
-                 type="text" 
+                 class="form-control"
+                 type="text"
                  placeholder="text-holder">
              </td>
             </tr>
             <tr>
             <td width="100">Your Email:</td>
-             <td><input 
+             <td><input
                  ng-model="sCtrl.newRecipe.email"
-                 class="form-control" 
-                 type="text" 
+                 class="form-control"
+                 type="text"
                  placeholder="text-holder">
-             </td>  
+             </td>
             </tr>
             <tr>
             <td height="200">Your Ingredients:</td>
               <td>
               <textarea
                  ng-model="sCtrl.newRecipe.ingredients"
-                 class="form-control" rows="15" columns="90" 
-                 type="text" 
+                 class="form-control" rows="15" columns="90"
+                 type="text"
                  placeholder="text-holder"></textarea>
               </td>
-              
+
             </tr>
             <tr>
             <td height="200">Directions:</td>
               <td>
               <textarea
                  ng-model="sCtrl.newRecipe.directions"
-                 class="form-control" rows="15" columns="90" 
-                 type="text" 
+                 class="form-control" rows="15" columns="90"
+                 type="text"
                  placeholder="text-holder"></textarea>
-              </td>             
-            </tr> 
-          
+              </td>
+            </tr>
+
         </tbody>
        </table>
-        <button ng-click="sCtrl.addRecipe()">Submit</button>
+        <button>Submit</button>
      </form>
   <br/>
-   
+
    </div>
-  
+
   <div id="secondary" class="col-xs-4 col-md-4">
     <div class="row">
        <h4>Family Pages</h4>
@@ -80,12 +79,26 @@
        <li>Steinolfsons</li>
        <li>Steinolfsons</li>
       </ul>
-     </div>     
+     </div>
+     <div class="row">
+         <h4>Our Users</h4>
+        <ul>
+         <li ng-show=""><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Ottens</li>
+         <li><a href="#"></a>Buxengards</li>
+         <li><a href="#"></a>Culver</li>
+         <li><a href="#"></a>Cameron</li>
+         <li><a href="#"></a>Heck</li>
+         <li><a href="#"></a>Penn</li>
+         <li><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Steinolfsons</li>
+         <li><a href="#"></a>Steinolfsons</li>
+        </ul>
+       </div>
   </div>
   </div>
  </div>
 
-  
-  
+
+
 </div>
-</body>
