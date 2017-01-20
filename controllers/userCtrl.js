@@ -15,7 +15,7 @@ var User = require('../models/userauth'),
 module.exports = {   //all routes need to be in object we will export to our route handlers
   logout: (req, res) => {
     req.session.reset(); //clears the cookie session
-    res.redirect('home.html');
+    res.redirect('/');
   },
 
   login: (req, res) => {  //this is the submission/login request for your users entering your site
@@ -23,7 +23,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
     console.info('auth.login.payload:', req.body);
 
     User.findOne({
-      email: req.body.email.toLowerCase
+      email: req.body.email
     }, (err, user) => {
             if( err) {
                 console.error('MongoDB error:'.red, err);
@@ -47,7 +47,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
                         res.status(403).json(errors.login);
                     } else {
                         req.session.uid = user._id; // this is what keeps our user session on the backend!
-                        res.send({ message: 'Login success' }); // send a success message
+                        res.send(user); // send a success message
                     }
                 });
             }
@@ -157,8 +157,8 @@ module.exports = {   //all routes need to be in object we will export to our rou
 
     User
       .find(query)
-      .populate('family', 'name')
-      .select('firstName')
+      .populate('family')
+      //.select('firstName')
       .exec((err, users)=>{
       if(err) {
         return res.send(err);

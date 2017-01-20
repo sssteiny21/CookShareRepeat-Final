@@ -44,6 +44,11 @@ console.log("hello")
       controller    : 'server',
       controllerAs  : 'sCtrl'
     })
+    /*.when('/recipeoftheday/:id', {
+      templateUrl   : '/html/recipeoftheday.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
+    }) */
     .when('/submitrecipe', {
       templateUrl   : '/html/submitrecipe.html',
       controller    : 'server',

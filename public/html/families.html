@@ -6,16 +6,17 @@
    <div class="col-xs-8 col-md-8">
 
      <!--LOGIN FORM-->
-     <form ng-submit="auth.login.submit($event)">
+     <form ng-submit="sCtrl.login()">
       <h4>Login!</h4>
       <div class="form-group">
       <label>Email</label>
-      <input required placeholder="Email" type="text" class="form-control" ng-model="auth.payloads.login.email">
+      <input ng-model="sCtrl.loginUser.email" required placeholder="Email" type="email" class="form-control" >
       </div>
       <div class="form-group">
       <label for="password">Password</label>
-      <input required placeholder="Enter a password" type="password" class="form-control" ng-model="auth.payloads.login.password">
+      <input ng-model="sCtrl.loginUser.password"required placeholder="Enter a password" type="password" class="form-control" >
       </div>
+      <button type="submit">Login</button>
     </form>
 
 <!--REGISTER FORM-->

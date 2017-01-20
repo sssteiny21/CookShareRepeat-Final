@@ -6,7 +6,7 @@ Auth.$inject = ["$routeParams", "$http"];
 //again, $routeParams is basically req.params(backend) for Angular(frontend routing)
 
 function Auth ($routeParams, $http) { //window.userCtrl
-  console.info('User controller loaded!');
+  console.info('Auth controller loaded!');
 
   var auth = this;
 
@@ -58,7 +58,7 @@ function Auth ($routeParams, $http) { //window.userCtrl
   };
 
 
-  pCtrl.getUserProfile = function(){
+  /*pCtrl.getUserProfile = function(){
     $http({
       method  : 'GET',
       url     : '/api/users/' + $routeParams.id
@@ -67,7 +67,7 @@ function Auth ($routeParams, $http) { //window.userCtrl
     })
     }
 
-  pCtrl.getUserProfile();   //you must always call your controller function
+  pCtrl.getUserProfile();  */ //you must always call your controller function
 
 
 }

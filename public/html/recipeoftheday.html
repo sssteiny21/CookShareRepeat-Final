@@ -31,8 +31,9 @@
    <h3>Most recent recipe submitted</h3>
     <ul>
       <hr/>
-      <li>
-      <b>Name:</b> {{"" + sCtrl.getRecipe.name}} <br>
+      <li ng-repeat="recipe in sCtrl.recipes">
+      <a href=""></a></li>
+      <b>Name:</b> {{"" + recipe.name}} <br>
       <b>Creator:</b> {{"" + sCtrl.getRecipe.creator}} <br>
       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{sCtrl.getRecipe.email}}</a><br>
       <b>Ingredients:</b>{{"" + sCtrl.getRecipe.ingredients}} <br>
@@ -82,4 +83,3 @@ Spices</dd>
 </div>
 
 </div>
-</body>

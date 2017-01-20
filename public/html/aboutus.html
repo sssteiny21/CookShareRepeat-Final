@@ -18,7 +18,7 @@
           <h4>Our Users:</h4>
            <ul>
              <li ng-repeat="user in sCtrl.users">
-                   <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
+                   <a href="#!/profiles/{{user._id}}">{{user.firstName}}{{user.lastName}} {{user.family.name}}</a>
              </li>
            </ul>
       </div>

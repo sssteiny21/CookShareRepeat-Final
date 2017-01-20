@@ -1,24 +1,25 @@
 const SALTY_BITS = 10; //10 for strength is usually enough
 
 var mongoose = require('mongoose'),
-    bcrypt = require('bcryptjs');
-
-var userSchema = mongoose.Schema({
-  firstName : String,
-  lastName  : String,
-  email     : {type : String, required : true, unique : true},
-  password       : {type : String, required : true},
-  state     : String,
-  country   :String,
-  family    : {
-    type : mongoose.Schema.ObjectId,
-    ref  : "Family"
+    bcrypt = require('bcryptjs'),
+    userSchema = mongoose.Schema({
+      firstName : String,
+      lastName  : String,
+      email     : {type : String, required : true, unique : true},
+      password       : {type : String, required : true},
+      state     : String,
+      country   :String,
+      family    : {
+        type : mongoose.Schema.ObjectId,
+        ref  : "Family"
   },
-  dateJoined: {
-    type : Number,
-    default : () => {return Date.now()}
-  },
+      dateJoined: {
+        type : Number,
+        default : () => {return Date.now()
+}
+}
 });
+
 
 //AUTHENTICATION
 
@@ -27,7 +28,7 @@ userSchema.pre('save', function(next) { // don't use an arrow function here, we 
     var user = this; // this is why we can't use an arrow function  here, again we need the scope
 
     // only hash the password if it has been modified (for updating users)
-    if( !user.isModified('pass') ) {
+    if( !user.isModified('password') ) {
         return next();
     }
     // generate a salt value to encrypt our password
@@ -39,7 +40,7 @@ userSchema.pre('save', function(next) { // don't use an arrow function here, we 
         console.info('SALT generated!'.yellow, salt);
 
         // now let's hash this bad boy!
-        bcrypt.hash(user.pass, salt, (hashErr, hashedPassword) => {
+        bcrypt.hash(user.password, salt, (hashErr, hashedPassword) => {
             if( hashErr ) {
                 return next(hashErr);
             }

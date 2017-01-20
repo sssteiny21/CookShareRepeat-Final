@@ -57,26 +57,30 @@
         </li>
 
 <!-- The Modal -->
-  <div id="id01" class="modal">
+  <div id="id01" class="modal" ng-controller="server as sCtrl">
    <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-   <form class="modal-content animate" action="action_page.php">
-    <div class="imgcontainer">
+   <form ng-submit="sCtrl.login()" class="modal-content animate">
+    <div class="imgcontainer logo">
       <img src="https://slcphoeniximages.s3-us-west-2.amazonaws.com/14829/fullsize.jpg" alt="Avatar" class="avatar">
     </div>
 
-    <div class="container-fluid">
-      <form ng-submit="auth.login.submit($event)">
-      <label><b>Email</b></label>
-      <input type="text" required placeholder="Enter Email" ng-model="auth.payloads.login.email">
+    <!--LOGIN FORM-->
+    <!--<form ng-submit="sCtrl.login()">-->
+     <div class="form-group">
+     <h1>Please Login:</h1>
+     <label>Email</label>
+     <input ng-model="sCtrl.loginUser.email" required placeholder="Email" type="email" class="form-control" >
+     </div>
 
-      <label><b>Password</b></label>
-      <input type="password" required placeholder="Enter Password" ng-model="auth.payloads.login.password">
+     <div class="form-group">
+     <label for="password">Password</label>
+     <input ng-model="sCtrl.loginUser.password"required placeholder="Enter a password" type="password" class="form-control" >
+     </div>
 
-      <button type="submit">Login</button>
-    </div>
+     <button data-dismiss="modal" type="submit">Login</button>
 
     <div class="container-fluid" style="background: linear-gradient(to left, darkgreen, lightgreen);">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>

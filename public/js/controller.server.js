@@ -31,6 +31,19 @@ function serverCtrl ($routeParams, $http) {
     });
   }
 
+  sCtrl.login = ()=> {
+    console.log(sCtrl);
+    $http({
+      method    :'POST',
+      url       : '/login',
+      data      : sCtrl.loginUser
+    }) .then(function(response){
+      document.getElementById('id01').style.display='none'  //this clears the modal after hiiting login button.  It's attached to the modal on-click
+       location.href ='/#!/profiles/' + response.data._id
+      console.log(response);
+    });
+  }
+
   sCtrl.submitFamily = ()=> {
     $http({
       method    : 'POST',
