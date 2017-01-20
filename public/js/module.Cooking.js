@@ -15,10 +15,17 @@ console.log("hello")
     })
     .when('/aboutus', {
       templateUrl   : '/html/aboutus.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
 
     })
     .when('/families', {
       templateUrl   : '/html/families.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
+    })
+    .when('/families/:id', {
+      templateUrl   : '/html/familypages.html',
       controller    : 'server',
       controllerAs  : 'sCtrl'
     })
@@ -27,21 +34,30 @@ console.log("hello")
       controller    : 'auth.controller',
       controllerAs  : 'auth'
     })
+    .when('/profiles/:id', {
+      templateUrl   : '/html/profile.html',
+      controller    : 'auth.controller',
+      controllerAs  : 'auth'
+    })
     .when('/recipeoftheday', {
       templateUrl   : '/html/recipeoftheday.html',
       controller    : 'server',
-      controllerAs  : 'serverCtrl'
+      controllerAs  : 'sCtrl'
     })
     .when('/submitrecipe', {
       templateUrl   : '/html/submitrecipe.html',
       controller    : 'server',
-      controllerAs  : 'serverCtrl'
+      controllerAs  : 'sCtrl'
     })
     .when('/blog', {
       templateUrl   : '/html/blog.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
     })
     .when('/contactus', {
       templateUrl   : '/html/contactus.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
     })
 
 }

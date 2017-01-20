@@ -1,45 +1,30 @@
-<body>
 <div id="primary">
 <h3>Welcome to the BLOG *UNDER CONSTRUCTION*</h3>
 <br/>
   <div id="primary">
     <div class="row">
      <div class="col-xs-8 col-md-8">Blog your heart away with updates, tips, and simply keep in touch.</div>
-       <div id="secondary" class="col-xs-4 col-md-4">
+      <div id="secondary" class="col-xs-4 col-md-4">
         <div class="row">
-         <h4>Family Pages</h4>
-         <ul>
-           <li>Steinolfsons</li>
-           <li>Ottens</li>
-           <li>Buxengards</li>
-           <li>Culver</li>
-           <li>Cameron</li>
-           <li>Heck</li>
-           <li>Penn</li>
-           <li>Steinolfsons</li>
-           <li>Steinolfsons</li>
-           <li>Steinolfsons</li>
-         </ul>
+         <h4>Our Families</h4>
+          <ul>
+           <li ng-repeat="family in sCtrl.familyList">
+             <a href="#!/families/{{fam._id}}">{{family.name}}
+          </ul>
+         </div>
+         <div class="row">
+           <h4>Our Users:</h4>
+            <ul>
+              <li ng-repeat="user in sCtrl.users">
+                    <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} {{user.family.name}}</a>
+              </li>
+            </ul>
+         </div>
+
         </div>
-        <div class="row">
-            <h4>Our Users</h4>
-           <ul>
-            <li ng-show=""><a href="#"></a>Steinolfsons</li>
-            <li><a href="#"></a>Ottens</li>
-            <li><a href="#"></a>Buxengards</li>
-            <li><a href="#"></a>Culver</li>
-            <li><a href="#"></a>Cameron</li>
-            <li><a href="#"></a>Heck</li>
-            <li><a href="#"></a>Penn</li>
-            <li><a href="#"></a>Steinolfsons</li>
-            <li><a href="#"></a>Steinolfsons</li>
-            <li><a href="#"></a>Steinolfsons</li>
-           </ul>
-        </div>
-       </div>
+      </div>
+    </div>
         <img class="logo1" src="http://www.doz.com/cms/wp-content/uploads/2013/08/blog.jpg" alt="">
     </div>
    </div>
   </div>
-
-</body>

@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html ng-app="module.profileController">
- <head>
-   <title>Your Profile</title>
-   <script src="/js/module.profile.js"></script>
- </head>
-<body ng-controller="profileController as Profile" class="container">
+
+<body ng-controller="auth.controller as auth" class="container">
 <h1 class="text-center">
-  {{pCtrl.user.firstName}} {{pCtrl.user.lastName}}
+  {{auth.user.firstName}} {{auth.user.lastName}}
 </h1>
 
 <div class="container">
 
   <div class="row">
     <div class="col-xs-6">
-      Email : {{pCtrl.user.email}}
+      Email : {{auth.user.email}}
     </div>
     <div class="col-xs-6">
-      State : {{pCtrl.user.state}}
+      State : {{auth.user.state}}
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      Country : {{pCtrl.user.country}}
+      Country : {{auth.user.country}}
     </div>
     <div class="col-xs-6">
-      Family : <a href="/famlies/{{pCtrl.user.family._id}}">{{pCtrl.user.family.name}}</a>
-
+      Family : <a href="/families/{{auth.user.family._id}}">{{auth.user.family.name}}</a>
     </div>
 
   </div>

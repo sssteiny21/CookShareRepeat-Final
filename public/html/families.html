@@ -59,37 +59,25 @@
  </div>
 </div>
 
-  <div id="secondary" class="col-xs-4 col-md-4">
-     <div class="row">
-       <h4>Family Pages</h4>
+<div id="secondary" class="col-xs-4 col-md-4">
+  <div class="row">
+   <h4>Our Families</h4>
+    <ul>
+     <li ng-repeat="family in sCtrl.familyList">
+       <a href="#!/families/{{fam._id}}">{{family.name}}
+    </ul>
+   </div>
+   <div class="row">
+     <h4>Our Users:</h4>
       <ul>
-       <li ng-show=""><a href="#"></a>Steinolfsons</li>
-       <li><a href="#"></a>Ottens</li>
-       <li><a href="#"></a>Buxengards</li>
-       <li><a href="#"></a>Culver</li>
-       <li><a href="#"></a>Cameron</li>
-       <li><a href="#"></a>Heck</li>
-       <li><a href="#"></a>Penn</li>
-       <li><a href="#"></a>Steinolfsons</li>
-       <li><a href="#"></a>Steinolfsons</li>
-       <li><a href="#"></a>Steinolfsons</li>
+        <li ng-repeat="user in sCtrl.users">
+              <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
+        </li>
       </ul>
-     </div>
-     <div class="row">
-         <h4>Our Users</h4>
-        <ul>
-         <li ng-show=""><a href="#"></a>Steinolfsons</li>
-         <li><a href="#"></a>Ottens</li>
-         <li><a href="#"></a>Buxengards</li>
-         <li><a href="#"></a>Culver</li>
-         <li><a href="#"></a>Cameron</li>
-         <li><a href="#"></a>Heck</li>
-         <li><a href="#"></a>Penn</li>
-         <li><a href="#"></a>Steinolfsons</li>
-         <li><a href="#"></a>Steinolfsons</li>
-         <li><a href="#"></a>Steinolfsons</li>
-        </ul>
-       </div>
-    </div>
+   </div>
+
+  </div>
+</div>
+</div>
 
 <!--THIS IS THE FORM TO COLLECT EMAIL -->
