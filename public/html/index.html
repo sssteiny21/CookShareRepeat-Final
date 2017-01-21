@@ -14,9 +14,8 @@
 
   <script src="/js/module.Cooking.js"></script>
   <script src="/js/factory.recipe.js"></script>
-  <script src="/js/controller.userProfile.js"></script>
+  <script src="/js/factory.api.js"></script>
   <script src="/js/controller.server.js"></script>
-  <script src="/js/controller.family.js"></script>
 
 
 </head>
@@ -51,10 +50,21 @@
         <li><a href="#!/submitrecipe">SUBMIT RECIPE</a></li>
         <li><a href="#!/blog">BLOG</a></li>
         <li><a href="#!/contactus">CONTACT US</a></li>
+
+        <!--Search bar in nav bar -->
+        <form ng-submit="home.getThatRecipe()" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input ng-model="home.recipeInput" type="text" class="form-control" placeholder="Search Ingredient">
+            </div>
+            <button type="submit" class="add-on"><i class="icon-search" class="btn btn-default">Search</button>
+        </form>
+
        <!-- Button to open the modal login form -->
         <li>
-          <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+          <button style="float-right" onclick="document.getElementById('id01').style.display='block'">Login</button>
         </li>
+
+
 
 <!-- The Modal -->
   <div id="id01" class="modal" ng-controller="server as sCtrl">
@@ -91,7 +101,8 @@
  </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+  <ul>
+    {{hctrl.recipe}}
    <ng-view>
 
    </ng-view>

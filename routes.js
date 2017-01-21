@@ -3,6 +3,7 @@ var Auth = require('./controllers/userCtrl'),
     Families = require('./controllers/familyCtrl'),  //grab your controllers
     Users    = require('./controllers/userCtrl'),
     Recipes  = require('./controllers/recipeCtrl'),
+    api   = require('./controllers/api.js'),
     User = require('./models/userauth');
 
     //Middleware = require('./middleware');
@@ -22,6 +23,10 @@ module.exports = (app) =>{
       res.send(user) //this sends down their object
   })
 })
+
+    //API ROUTE
+    app.get('/api/search', api.recipe)
+
 
     //authentication routes
 

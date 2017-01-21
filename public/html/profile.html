@@ -1,22 +1,22 @@
 
 
 <h1 class="text-center">
-  {{sCtrl.users.firstName}} {{sCtrl.users.lastName}}
+<p>Welcome to your profile page!  {{user.firstName}} {{user.lastName}} </p>
 </h1>
 
 <div class="container">
 
   <div class="row">
     <div class="col-xs-6">
-      Email : {{sCtrl.users.email}}
+      Email : {{sCtrl.user.email}}
     </div>
     <div class="col-xs-6">
-      State : {{sCtrl.users.state}}
+      State : {{user.state}}
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      Country : {{sCtrl.users.country}}
+      Country : {{user.country}}
     </div>
     <div class="col-xs-6">
       Family : <a href="/families/{{sCtrl.user.family._id}}">{{auth.user.family.name}}</a>

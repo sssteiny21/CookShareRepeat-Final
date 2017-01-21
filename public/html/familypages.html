@@ -1,6 +1,4 @@
-<body ng-controller="server as sCtrl" class="container">
-<h1 class="text-center">
-  {{sCtrl.familyList.name}} {{sCtrl.familyList.state}}
+<h1 ng-show="family in sCtrl.familyList"> {{family.name}} {{family.state}}
 </h1>
 
 
@@ -8,4 +6,3 @@
 <ul>
   <li ng-repeat="user in sCtrl.users">{{user.firstName}} {{user.lastName}}</li>
 </ul>
-</body

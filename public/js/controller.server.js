@@ -73,6 +73,15 @@ function serverCtrl ($routeParams, $http) {
     });
   }
 
+  sCtrl.getProfile = function(){
+    $http({
+      method    :'GET',
+      url       :'/api/users/' + $routeParams.id
+    }) .then(function(response){
+      sCtrl.user = response.data;
+    });
+  }
+
   sCtrl.getFamilies= function(){
     $http({
       method : 'GET',
@@ -86,7 +95,10 @@ function serverCtrl ($routeParams, $http) {
   sCtrl.getUsers();  //you must call your get funcitons
   sCtrl.getRecipes();
   sCtrl.getFamilies();
-
+  
+  if($routeParams.id){
+    sCtrl.getProfile();
+}
 }
 
 
