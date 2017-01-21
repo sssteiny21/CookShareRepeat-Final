@@ -73,30 +73,21 @@ function serverCtrl ($routeParams, $http) {
     });
   }
 
-  sCtrl.getFamilies = function(){
-    $http({
-      method  :'GET',
-      url     :'/api/families'
-    }) .then(function(response){
-      sCtrl.familyList = response.data
-      console.log(response);
-    });
-  }
-  sCtrl.getUsers();
-  sCtrl.getRecipes();
-
   sCtrl.getFamilies= function(){
     $http({
       method : 'GET',
       url    : '/api/families'
     }).then(function(response){
       sCtrl.familyList = response.data;
+
     });
   }
+
+  sCtrl.getUsers();  //you must call your get funcitons
+  sCtrl.getRecipes();
   sCtrl.getFamilies();
 
 }
-
 
 
 

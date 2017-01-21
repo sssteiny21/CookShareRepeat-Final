@@ -1,4 +1,4 @@
-angular.module('Cooking')
+/* angular.module('Cooking')
   .controller('familyCtrl', familyCtrl)
 
 familyCtrl.$inject = ["$routeParams", "$http"];  //routeParams is basically req.params(backend) for angular (frontend)
@@ -33,3 +33,4 @@ function familyCtrl ($routeParams, $http) {
   fCtrl.getFamily();
   fCtrl.getUsers();
 }
+*/

@@ -1,29 +1,27 @@
 
-<body ng-controller="auth.controller as auth" class="container">
+
 <h1 class="text-center">
-  {{auth.user.firstName}} {{auth.user.lastName}}
+  {{sCtrl.users.firstName}} {{sCtrl.users.lastName}}
 </h1>
 
 <div class="container">
 
   <div class="row">
     <div class="col-xs-6">
-      Email : {{auth.user.email}}
+      Email : {{sCtrl.users.email}}
     </div>
     <div class="col-xs-6">
-      State : {{auth.user.state}}
+      State : {{sCtrl.users.state}}
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      Country : {{auth.user.country}}
+      Country : {{sCtrl.users.country}}
     </div>
     <div class="col-xs-6">
-      Family : <a href="/families/{{auth.user.family._id}}">{{auth.user.family.name}}</a>
+      Family : <a href="/families/{{sCtrl.user.family._id}}">{{auth.user.family.name}}</a>
     </div>
 
   </div>
   <p><a href="/logout" class="btn btn-lg btn-danger">Logout</a></p>
 </div>
-</body>
-</html>

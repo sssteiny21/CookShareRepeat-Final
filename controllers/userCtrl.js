@@ -53,23 +53,6 @@ module.exports = {   //all routes need to be in object we will export to our rou
             }
         });
   },
-  /*create: (req, res) => {
-      console.info('Register payload:'.cyan, req.body);
-
-      var newUser = new User(req.body);
-
-      newUser.save((err, user) => {
-          if( err ) {
-              console.error('#ERROR#'.red, 'Could not save new user :(', err);
-              res.status(500).send(errors.general);
-          } else {
-              console.log('New user created in MongoDB:', user);
-              req.session.uid = user._id; // this is what keeps our user session on the backend!
-              res.send({ message: 'Register success' }); // send a success message
-          }
-      });
-  }, */
-
   /*session: (req, res, next) => {
       if( req.session.uid ) {
           console.info('User is logged in, proceeding to dashboard...'.green);
@@ -115,19 +98,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
             })
 
         },
-
-    /*req.body.email = req.body.email.toLowerCase();
-    var newUser = new User(req.body);  //it's fine to pass in req.body however you can literally pass name, email etc, but as long as req.body matches your user object it's fine
-
-    newUser.save((err, user)=>{
-      if(err) {
-        return res.send(err);
-      }
-      req.session.uid = user._id;
-      res.send(user);  //this sends the document we just saved above in tthe database
-    });
-  },*/
-
+        
   get : (req, res) =>{
     //this function is to Get One User
     // route is /api/user/(user _id)

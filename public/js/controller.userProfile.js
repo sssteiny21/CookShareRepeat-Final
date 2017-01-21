@@ -1,4 +1,4 @@
-angular.module('Cooking')
+/* angular.module('Cooking')
   .controller('auth.controller', Auth)
 
 Auth.$inject = ["$routeParams", "$http"];
@@ -68,6 +68,3 @@ function Auth ($routeParams, $http) { //window.userCtrl
     }
 
   pCtrl.getUserProfile();  */ //you must always call your controller function
-
-
-}

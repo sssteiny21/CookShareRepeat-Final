@@ -31,13 +31,13 @@ console.log("hello")
     })
     .when('/profiles', {
       templateUrl   : '/html/profile.html',
-      controller    : 'auth.controller',
-      controllerAs  : 'auth'
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
     })
     .when('/profiles/:id', {
       templateUrl   : '/html/profile.html',
-      controller    : 'auth.controller',
-      controllerAs  : 'auth'
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
     })
     .when('/recipeoftheday', {
       templateUrl   : '/html/recipeoftheday.html',

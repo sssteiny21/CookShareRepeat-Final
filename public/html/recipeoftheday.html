@@ -8,7 +8,7 @@
        <h4>Our Families</h4>
         <ul>
          <li ng-repeat="family in sCtrl.familyList">
-           <a href="#!/families/{{fam._id}}">{{family.name}}
+           <a href="#!/families/{{family._id}}">{{family.name}}
         </ul>
        </div>
        <div class="row">
@@ -30,14 +30,12 @@
    <div class="col-xs-8 col-md-8">
    <h3>Most recent recipe submitted</h3>
     <ul>
-      <hr/>
-      <li ng-repeat="recipe in sCtrl.recipes">
-      <a href=""></a></li>
-      <b>Name:</b> {{"" + recipe.name}} <br>
-      <b>Creator:</b> {{"" + sCtrl.getRecipe.creator}} <br>
+      <li>
+      <b>Name:</b> {{"" + recipe[recipe.length-1].name}} <br>
+      <b>Creator:</b> {{"" + recipe[recipe.length-1].creator}} <br>
       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{sCtrl.getRecipe.email}}</a><br>
-      <b>Ingredients:</b>{{"" + sCtrl.getRecipe.ingredients}} <br>
-      <b>Directions:</b>{{"" + sCtrl.getRecipe.directions}} <br>
+      <b>Ingredients:</b>{{"" + recipe[recipe.length-1].ingredients}} <br>
+      <b>Directions:</b>{{"" + recipe[recipe.length-1].directions}} <br>
       </li>
       <hr/>
      </ul>
