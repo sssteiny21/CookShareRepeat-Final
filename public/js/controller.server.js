@@ -2,9 +2,9 @@
 angular.module('Cooking')
   .controller('server', serverCtrl)
 
-serverCtrl.$inject = ['$routeParams', '$http'];
+serverCtrl.$inject = ['$routeParams', '$http', '$location'];
 
-function serverCtrl ($routeParams, $http) {
+function serverCtrl ($routeParams, $http, $location) {
 
   var sCtrl = this;
 
@@ -18,6 +18,7 @@ function serverCtrl ($routeParams, $http) {
       url       : '/api/recipes',
       data      : sCtrl.newRecipe
     }) .then(function(response){
+      $location.url('/recipeoftheday');
       console.log(response);
     });
   }
@@ -183,7 +184,7 @@ function serverCtrl ($routeParams, $http) {
     sCtrl.getProfile();
     sCtrl.getFamilyPages();
     sCtrl.getFamilyUsers();
-}
+  }
 }
 
 
