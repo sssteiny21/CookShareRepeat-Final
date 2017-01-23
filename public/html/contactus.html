@@ -4,35 +4,34 @@
   <div id="primary">
     <div class="row">
      <div class="col-xs-8 col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email.
+       <br/>
+       <img class="width: 66%"src="http://pramukhenterprise.com/images/contactus/Contact-us-new.jpg"         alt="">
+       <p>Please contact me:</p>
+         <ul>
+           <li>Mailing: P.O BOX 586 Englewood, CO 80112</li>
+           <li>Phone: (651)215-1109 </li>
+           <li><text>Email:</text><a href="mailto:sssenterprise@hotmail.com">sssenterprise@hotmail.com</a></li>
+           <p>Anytime for more info or ideas</p>
+         </ul>
      </div>
+   </div>
+ </div>
+
      <div id="secondary" class="col-xs-4 col-md-4">
        <div class="row">
         <h4>Our Families</h4>
          <ul>
           <li ng-repeat="family in sCtrl.familyList">
-            <a href="#!/families/{{family._id}}">{{family.name}}
+            <a href="#!/families/{{family._id}}">{{family.name}}</a>
          </ul>
         </div>
         <div class="row">
           <h4>Our Users:</h4>
            <ul>
              <li ng-repeat="user in sCtrl.users">
-                   <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
+               <a href="#!/profiles/{{user._id}}">{{user.firstName}} {{user.lastName}} {{user.state}} {{user.country}}</a>
              </li>
            </ul>
         </div>
-
-       </div>
-     </div>
-   </div>
-    <img class="width: 66%"src="http://pramukhenterprise.com/images/contactus/Contact-us-new.jpg"         alt="">
-    <p>Please contact me:</p>
-      <ul>
-        <li>Mailing: P.O BOX 586 Englewood, CO 80112</li>
-        <li>Phone: (651)215-1109 </li>
-        <li><text>Email:</text><a href="mailto:sssenterprise@hotmail.com">sssenterprise@hotmail.com</a></li>
-        <p>Anytime for more info or ideas</p>
-      </ul>
+      </div>
   </div>
- </div>
-</div>

@@ -74,7 +74,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
                     // Regular user creation flow!
                     var newUser = new User(req.body)
                     newUser.save((err, user)=>{
-                        res.send(doc);
+                        res.send(user);
                     })
                 }
                 else{
