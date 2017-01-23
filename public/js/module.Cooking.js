@@ -44,6 +44,11 @@ console.log("hello")
       controller    : 'server',
       controllerAs  : 'sCtrl'
     })
+    .when('/api', {
+      templateUrl   : '/html/api.html',
+      controller    : 'server',
+      controllerAs  : 'sCtrl'
+    })
     /*.when('/recipeoftheday/:id', {
       templateUrl   : '/html/recipeoftheday.html',
       controller    : 'server',
@@ -80,7 +85,7 @@ function main (API) {
   hCtrl.content = " ";
 
 //API FUNCTION
-  hCtrl.getThatRecipe = function(){
+  /*hCtrl.getThatRecipe = function(){
 
     API.getRecipe(hCtrl.recipeInput)
       .then(function(resp){
@@ -90,7 +95,7 @@ function main (API) {
 
   }
 
-}
+} */
 
 
 // Get the modal
@@ -101,4 +106,5 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
 }

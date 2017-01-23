@@ -1,8 +1,20 @@
 <div id="primary">
-<h3>Find your recipe!</h3>
+<h3 style="display:inline">Search your ingredient or browse through user recipes</h3>
+<hr/>
  <div id="primary">
-  <div class="row">
-    <div class="col-xs-8 col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email. </div>
+   <div class="row">
+    <div class="col-xs-8 col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email.
+    <form style="float-right" ng-submit="home.getThatRecipe()" class="navbar-form navbar-left" role="search">
+        <div id="primary" class="form-group">
+            <input ng-model="home.recipeInput" type="text" class="form-control" placeholder="Search Ingredient">
+        <button type="submit" class="add-on"><i class="icon-search" class="btn btn-default">Search</button>
+        </div>
+    </form>
+    <div class="col-xs-12" ng-repeat="recipe in home.recipe"> {{recipe.title}} <br/>
+      <a href="{{recipe.source_url}}" target="_blank"><img class="apiLogo" ng-src="{{recipe.image_url}}"/></a>
+    </div>
+    </div>
+
      <div id="secondary" class="col-xs-4 col-md-4">
       <div class="row">
        <h4>Our Families</h4>
@@ -18,10 +30,7 @@
                   <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
             </li>
           </ul>
-          <ul>
-          {{hCtrl.recipe}}
-        </ul>
-       </div>
+      </div>
 
       </div>
     </div>
@@ -31,22 +40,11 @@
 <div id="primary">
  <div class="row">
    <div class="col-xs-8 col-md-8">
-   <h3>Most recent recipe submitted</h3>
-    <ul>
-      <li>
-      <b>Name:</b> {{"" + recipe[recipe.length-1].name}} <br>
-      <b>Creator:</b> {{"" + recipe[recipe.length-1].creator}} <br>
-      <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{sCtrl.getRecipe.email}}</a><br>
-      <b>Ingredients:</b>{{"" + recipe[recipe.length-1].ingredients}} <br>
-      <b>Directions:</b>{{"" + recipe[recipe.length-1].directions}} <br>
-      </li>
-      <hr/>
-     </ul>
-   <h3>Popular Recipes</h3>
+   <h3>Popular User Recipes</h3>
      <ul>
       <li ng-repeat="recipe in sCtrl.recipes">
       <b>Name:</b>{{"" + recipe.name}} <br>
-      <b>Creator:</b>{{"" + recipe.creator}} <br>
+      <b>Creator:</b>{{"" + recipe._i}}<br>
       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{recipe.email}}</a><br>
       <b>Ingredients:</b>{{"" + recipe.ingredients}} <br>
       <b>Directions:</b>{{"" + recipe.directions}}<br>

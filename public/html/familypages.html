@@ -1,8 +1,14 @@
-<h1 ng-show="family in sCtrl.familyList"> {{family.name}} {{family.state}}
-</h1>
+<h3 class="text-center">
+<p>Welcome to the {{sCtrl.family.name}} Family page!</p>
+</h3>
+<hr/>
 
 
 
+
+
+<p>Recipe Sharing Members of your family</p>
 <ul>
-  <li ng-repeat="user in sCtrl.users">{{user.firstName}} {{user.lastName}}</li>
+  <li ng-repeat='user in sCtrl.familyUsers'>{{user.firstName}} {{user.lastName}} / {{user.state}} / {{user.email}}</li>
+    <!--<a href="#!/profiles/{{user.family._id}}">{{user.firstName}} {{user.lastName}}</a> -->
 </ul>

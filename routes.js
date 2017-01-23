@@ -3,7 +3,7 @@ var Auth = require('./controllers/userCtrl'),
     Families = require('./controllers/familyCtrl'),  //grab your controllers
     Users    = require('./controllers/userCtrl'),
     Recipes  = require('./controllers/recipeCtrl'),
-    api   = require('./controllers/api.js'),
+    API   = require('./controllers/api.js'),
     User = require('./models/userauth');
 
     //Middleware = require('./middleware');
@@ -25,7 +25,8 @@ module.exports = (app) =>{
 })
 
     //API ROUTE
-    app.get('/api/search', api.recipe)
+    app.get('/api/search', API.recipe)
+    app.get('/api/search/:id' , API.recipe)
 
 
     //authentication routes
@@ -53,6 +54,7 @@ module.exports = (app) =>{
   //Recipe Routes
   app.get('/api/recipes', Recipes.get); // Get Many
   app.get('/api/recipes/:id', Recipes.get); // Get One
+  app.get('/api/recipes/:creator', Recipes.get);
   app.post('/api/recipes', Recipes.create); //creates a recipe
 
 

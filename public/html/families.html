@@ -1,11 +1,11 @@
 <div id="primary">
-<h3>Register to create your User Page</h3>
-<br/>
+<h3 style="display:inline;">Register to create your User Page</h3>
+<hr/>
 <div id="primary">
   <div class="row">
    <div class="col-xs-8 col-md-8">
 
-     <!--LOGIN FORM-->
+     <!--LOGIN FORM
      <form ng-submit="sCtrl.login()">
       <h4>Login!</h4>
       <div class="form-group">
@@ -17,11 +17,10 @@
       <input ng-model="sCtrl.loginUser.password"required placeholder="Enter a password" type="password" class="form-control" >
       </div>
       <button type="submit">Login</button>
-    </form>
+    </form> -->
 
 <!--REGISTER FORM-->
     <form ng-submit="sCtrl.submitUser()">
-        <h1>Register!</h1>
     <div class="form-group">
     <label>First Name</label>
     <input ng-model="sCtrl.newUser.firstName" required placeholder="Name" type="text" class="form-control" >
@@ -53,32 +52,32 @@
 
     <div class="checkbox">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit">Submit</button>
 
     </form>
   </div>
+  <div id="secondary" class="col-xs-4 col-md-4">
+    <div class="row">
+     <h4>Our Families</h4>
+      <ul>
+       <li ng-repeat="family in sCtrl.familyList">
+         <a href="#!/families/{{family._id}}">{{family.name}}
+      </ul>
+     </div>
+     <div class="row">
+       <h4>Our Users:</h4>
+        <ul>
+          <li ng-repeat="user in sCtrl.users">
+                <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
+          </li>
+        </ul>
+     </div>
+   </div>
  </div>
 </div>
 
-<div id="secondary" class="col-xs-4 col-md-4">
-  <div class="row">
-   <h4>Our Families</h4>
-    <ul>
-     <li ng-repeat="family in sCtrl.familyList">
-       <a href="#!/families/{{family._id}}">{{family.name}}
-    </ul>
-   </div>
-   <div class="row">
-     <h4>Our Users:</h4>
-      <ul>
-        <li ng-repeat="user in sCtrl.users">
-              <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} || {{user.family.name}}</a>
-        </li>
-      </ul>
-   </div>
 
-  </div>
-</div>
+
 </div>
 
 <!--THIS IS THE FORM TO COLLECT EMAIL -->

@@ -22,13 +22,17 @@ module.exports = {
     else{
       var query = {};
       //this gets many recipes
-      Recipe.find({}, (err, recipe) =>{
+      if (req.query.creator){
+        query.creator = req.query.creator
+      }
+      Recipe.find(query, (err, recipe) =>{
         res.send(recipe);
       });
     }
   },
 
   create : (req, res) =>{
+    req.body.creator = req.session.uid
     var newRecipe = new Recipe(req.body);
 
     newRecipe.save((err, recipe)=>{

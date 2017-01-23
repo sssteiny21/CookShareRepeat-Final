@@ -74,7 +74,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
                     // Regular user creation flow!
                     var newUser = new User(req.body)
                     newUser.save((err, user)=>{
-                        res.send(doc)
+                        res.send(doc);
                     })
                 }
                 else{
@@ -98,7 +98,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
             })
 
         },
-        
+
   get : (req, res) =>{
     //this function is to Get One User
     // route is /api/user/(user _id)
@@ -128,7 +128,7 @@ module.exports = {   //all routes need to be in object we will export to our rou
 
     User
       .find(query)
-      .populate('family')
+      .populate('family', 'name')
       //.select('firstName')
       .exec((err, users)=>{
       if(err) {

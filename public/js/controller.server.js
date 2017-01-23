@@ -9,6 +9,8 @@ function serverCtrl ($routeParams, $http) {
   var sCtrl = this;
 
 //new way using $http
+//post controllers
+
   sCtrl.addRecipe = ()=> {
     console.log(sCtrl); //console log everything to make sure it wokrs and to debug
     $http({
@@ -54,6 +56,8 @@ function serverCtrl ($routeParams, $http) {
     });
   }
 
+//get controllers
+
   sCtrl.getRecipes = function(){
     $http({
       method    : 'GET',
@@ -63,6 +67,61 @@ function serverCtrl ($routeParams, $http) {
       console.log(response);
     });
   }
+  /*sCtrl.getOneRecipes = function(){
+    $http({
+      method    : 'GET',
+      url       : '/api/recipes' + $routeParams.creator
+    }) .then(function(response){
+      sCtrl.creatorRecipes = response.data;
+      console.log(response);
+    });
+  } */
+
+
+  sCtrl.recentRecipe = function(){
+    $http({
+      method  : 'GET',
+      url     :'/api/recipes/' + $routeParams.id
+    }) .then(function(response){
+      sCtrl.recentRecipe = response.data;
+    });
+  }
+
+//controller to input recipe data in profile page
+  sCtrl.getCreatorRecipe = function(){
+    $http({
+      method   : 'GET',
+      url      : '/api/recipes/',
+      params  : {
+        //these are query string parameters
+        creator: sCtrl.profile._id
+      }
+    }) .then(function(response){
+      sCtrl.creatorRecipes = response.data;
+    })
+  }
+
+  sCtrl.profileRecipes = function(){
+    $http({
+      method  :'GET',
+      url     : '/api/me/',
+      }) .then(function(response){
+      sCtrl.profile = response.data
+      sCtrl.getCreatorRecipe();
+    })
+  }
+
+/*API Get request
+  sCtrl.getApiRecipes = function(){
+    $http({
+      method:'GET',
+      url   :'/api/search/' + $routeParams.id
+    }) .then(function(response){
+      //console.log('Recipe time : ', response.data)
+      sCtrl.recipe = response.data;
+    });
+
+  } */
 
   sCtrl.getUsers = function(){
     $http({
@@ -88,16 +147,42 @@ function serverCtrl ($routeParams, $http) {
       url    : '/api/families'
     }).then(function(response){
       sCtrl.familyList = response.data;
-
     });
+  }
+
+  sCtrl.getFamilyPages= function(){
+    $http({
+      method : 'GET',
+      url    : '/api/families/' + $routeParams.id
+    }) .then(function(response){
+      sCtrl.family = response.data;
+    });
+  }
+
+  sCtrl.getFamilyUsers= function(){
+    $http({
+      method  :'GET',
+      url     :'/api/users/',//this must match our routes path
+      params  : {
+        //these are query string parameters
+        family: $routeParams.id
+      }
+    }) .then(function(response){
+      sCtrl.familyUsers = response.data;
+    })
   }
 
   sCtrl.getUsers();  //you must call your get funcitons
   sCtrl.getRecipes();
   sCtrl.getFamilies();
-  
-  if($routeParams.id){
+  //sCtrl.getApiRecipes();
+  //sCtrl.getCreatorRecipe ();
+  sCtrl.profileRecipes();
+
+  if($routeParams.id){  //this runs when $routeParams is requested
     sCtrl.getProfile();
+    sCtrl.getFamilyPages();
+    sCtrl.getFamilyUsers();
 }
 }
 

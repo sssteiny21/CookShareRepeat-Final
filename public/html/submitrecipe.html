@@ -1,9 +1,9 @@
 <div id="primary">
-  <h3>Submit your recipe!</h3>
-<br/>
+  <h3 style="display:inline">Submit your recipe</h3>
+<hr/>
   <div id="primary">
    <div class="row">
-    <div>
+    <div class="col-xs-8 col-md-8">
       <form ng-submit="sCtrl.addRecipe()" class="inline form col-xs-8 col-md-8">
         <table width="400">
           <tbody>
@@ -11,15 +11,6 @@
             <td width="100">Recipe Name:</td>
              <td><input
                  ng-model="sCtrl.newRecipe.name"
-                 class="form-control"
-                 type="text"
-                 placeholder="text-holder">
-             </td>
-            </tr>
-            <tr>
-            <td width="100">Creator:</td>
-             <td><input
-                 ng-model="sCtrl.newRecipe.creator"
                  class="form-control"
                  type="text"
                  placeholder="text-holder">

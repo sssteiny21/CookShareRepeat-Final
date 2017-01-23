@@ -1,27 +1,95 @@
 
 
-<h1 class="text-center">
-<p>Welcome to your profile page!  {{user.firstName}} {{user.lastName}} </p>
-</h1>
+<h3 class="text-center">
+<p>Welcome to your profile page  {{sCtrl.user.firstName}} {{sCtrl.user.lastName}} </p>
+</h3>
+<hr/>
 
 <div class="container">
-
   <div class="row">
     <div class="col-xs-6">
       Email : {{sCtrl.user.email}}
     </div>
     <div class="col-xs-6">
-      State : {{user.state}}
+      State : {{sCtrl.user.state}}
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      Country : {{user.country}}
+      Country : {{sCtrl.user.country}}
     </div>
     <div class="col-xs-6">
-      Family : <a href="/families/{{sCtrl.user.family._id}}">{{auth.user.family.name}}</a>
+      Family Page : <a href="#!/families/{{sCtrl.user.family._id}}">{{sCtrl.user.family.name}}</a>
     </div>
 
+    <div id="secondary" class="col-xs-4 col-md-4">
+     <div class="row">
+             <h3>Your recipes:</h3>
+       <ul>
+        <li ng-repeat="recipe in sCtrl.creatorRecipes">
+          <b>Name:</b>{{"" + recipe.name}} <br>
+          <b>Ingredients:</b>{{"" + recipe.ingredients}} <br>
+          <b>Directions:</b>{{"" + recipe.directions}}<br>
+          <!--<a href="#!/profiles/{{recipe.creator}}">{{recipe.name}} {{recipe.ingredients}} {{recipe.directions}}</a>-->
+        </li>
+       </ul>
+      </div>
   </div>
-  <p><a href="/logout" class="btn btn-lg btn-danger">Logout</a></p>
+  <div id="primary">
+    <h3>Submit your recipe:</h3>
+  <div id="primary">
+   <div class="row">
+    <div>
+      <form ng-submit="sCtrl.addRecipe()" class="inline form col-xs-8 col-md-8">
+        <table width="400">
+          <tbody>
+            <tr>
+            <td width="100">Recipe Name:</td>
+             <td><input
+                 ng-model="sCtrl.newRecipe.name"
+                 class="form-control"
+                 type="text"
+                 placeholder="text-holder">
+             </td>
+            </tr>
+            <tr>
+            <td width="100">Your Email:</td>
+             <td><input
+                 ng-model="sCtrl.newRecipe.email"
+                 class="form-control"
+                 type="text"
+                 placeholder="text-holder">
+             </td>
+            </tr>
+            <tr>
+            <td height="200">Your Ingredients:</td>
+              <td>
+              <textarea
+                 ng-model="sCtrl.newRecipe.ingredients"
+                 class="form-control" rows="15" columns="90"
+                 type="text"
+                 placeholder="text-holder"></textarea>
+              </td>
+
+            </tr>
+            <tr>
+            <td height="200">Directions:</td>
+              <td>
+              <textarea
+                 ng-model="sCtrl.newRecipe.directions"
+                 class="form-control" rows="15" columns="90"
+                 type="text"
+                 placeholder="text-holder"></textarea>
+              </td>
+            </tr>
+
+        </tbody>
+       </table>
+        <button>Submit</button>
+     </form>
+  <br/>
+
+   </div>
+ </div>
+  <button> <a href="#!/">Logout</a></button>
 </div>
