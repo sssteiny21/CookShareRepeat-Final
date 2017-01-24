@@ -1,33 +1,34 @@
 <div id="primary">
-<h3 style="display:inline">Search your ingredient or browse through user recipes</h3>
-<hr/>
+ <h3 style="display:inline">Search your ingredient or browse through user recipes</h3>
+ <hr/>
  <div id="primary">
    <div class="row">
     <div class="col-xs-8 col-md-8">The picture in my head for this website is an overflowing recipe box that is hard to manage and hard to find the recipes you use more often.  This website is a place for those recipes to live! You can search and submit recipes for the rest of your family to see.  You can also register below to recieve weekly recipes right into your email.
     <br/>
-    <form style="float-right" ng-submit="home.getThatRecipe()" class="navbar-form navbar-left" role="search">
-        <div id="primary" class="form-group">
+      <form ng-submit="home.getThatRecipe()" class="navbar-form navbar-left" role="search">
+        <div id:"primary" class="form-group">
             <input ng-model="home.recipeInput" type="text" class="form-control" placeholder="Search Ingredient">
         <button type="submit" class="add-on"><i class="icon-search" class="btn btn-default">Search</button>
         </div>
       </form>
-      <hr/>
-        <div class="col-xs-12" ng-repeat="recipe in home.recipe"> {{recipe.title}} <br/>
-         <a href="{{recipe.source_url}}"    target="_blank"><img class="apiLogo"    ng-src="{{recipe.image_url}}"/></a>
-        </div>
-      <br/>
-    <h3>Popular User Recipes</h3>
-      <ul>
-       <li ng-repeat="recipe in sCtrl.recipes">
-       <b>Name:</b>{{"" + recipe.name}} <br>
-       <b>Creator:</b>{{"" + user.firstName}} {{user.lastName}}<br>
-       <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{recipe.email}}</a><br>
-       <b>Ingredients:</b>{{"" + recipe.ingredients}} <br>
-       <b>Directions:</b>{{"" + recipe.directions}}<br>
-       </li>
-     </ul>
+    <hr/>
+     <div class="thumbnail apiLogo col-xs-3 col-sm-3 col-md-3 col-lg-3" style="background-color:lightgreen" ng-repeat="recipe in home.recipe">{{recipe.title}}
+        <a href="{{recipe.source_url}}" target="blank"><img ng-src="{{recipe.image_url}}"/></a>
+     </div>
+     <br/>
+      <div>
+       <h3 style="text-align; left">Popular User Recipes</h3>
+         <ul>
+          <li ng-repeat="recipe in sCtrl.recipes">
+          <b>Name:</b>{{"" + recipe.name}} <br>
+          <b>Creator:</b>{{"" + user.firstName}} {{user.lastName}}<br>
+          <text><b>Email:</text></b><a href="mailto:sssteiny21@gmail.com">{{recipe.email}}</a><br>
+          <b>Ingredients:</b>{{"" + recipe.ingredients}} <br>
+          <b>Directions:</b>{{"" + recipe.directions}}<br>
+          </li>
+        </ul>
 
-      <hr/>
+       <hr/>
        <h3>Recipe of the month!!</h3>
        <b>Name:</b> Steingrimur's Corn and Black Bean Salsa <br/>
        <b>Creator:</b>Steingrimur Steinolfson <br/>
@@ -41,12 +42,13 @@
        Red Wine Vinegar<br/>
        Brown Sugar<br/>
        Lime Juice<br/>
-       Spices</dd>
+       Spices<br/>
        <b>Directions:</b>
-       Dice all ingredients needed.  Combine all ingredients in bowl.  Add to sterilized jars and pressure cook.
+       Dice all ingredients as needed.  Combine all ingredients in bowl.  Add to sterilized jars and pressure cook.
      </div>
-   </div>
- </div>
+    </div>
+  </div>
+</div>
 
      <div id="secondary" class="col-xs-4 col-md-4">
       <div class="row">
@@ -55,8 +57,8 @@
          <li ng-repeat="family in sCtrl.familyList">
            <a href="#!/families/{{family._id}}">{{family.name}}</a>
         </ul>
-       </div>
-       <div class="row">
+      </div>
+      <div class="row">
          <h4>Our Users:</h4>
           <ul>
             <li ng-repeat="user in sCtrl.users">
@@ -65,5 +67,6 @@
           </ul>
       </div>
     </div>
+
 
 </div>

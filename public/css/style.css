@@ -84,8 +84,8 @@ h4 {
   width: 200px;
 }
 .apiLogo {
-  height: 200px;
-  width: 150px;
+  height: 175px;
+  width: 165px;
 }
 
 .body {
@@ -96,7 +96,6 @@ button {
   padding: 10px; 20px; 10px; 20px;
   margin: 20px; 10px; 20px; 10px;
   color: white;
-
 }
 navbar {
   margin: 0;

@@ -9,6 +9,12 @@
 
 <p>Recipe Sharing Members of your family</p>
 <ul>
-  <li ng-repeat='user in sCtrl.familyUsers'>{{user.firstName}} {{user.lastName}} / {{user.state}} / {{user.email}}</li>
+  <li ng-repeat='user in sCtrl.familyUsers'>
+    <a href="#!/profiles/{{user._id}}">{{user.firstName}}  {{user.lastName}} {{user.state}} {{user.country}}</a>
     <!--<a href="#!/profiles/{{user.family._id}}">{{user.firstName}} {{user.lastName}}</a> -->
+  </li>
 </ul>
+
+</div>
+ <button> <a href="#!/">Logout</a></button>
+</div>

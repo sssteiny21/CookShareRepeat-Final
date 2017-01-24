@@ -11,7 +11,7 @@ module.exports = {
           return res.send(err)
         }
         if(recipe){
-          res.send(recipe)
+          return res.send(recipe)
         }
         else{
           res.send({badrecipe: 'No Recipe Found here'});

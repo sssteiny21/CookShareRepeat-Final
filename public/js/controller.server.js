@@ -18,7 +18,7 @@ function serverCtrl ($routeParams, $http, $location) {
       url       : '/api/recipes',
       data      : sCtrl.newRecipe
     }) .then(function(response){
-      $location.url('/recipeoftheday');
+      $location.url('/recipeoftheday');  //you can handle this route here instead of in your html file
       console.log(response);
     });
   }
@@ -30,6 +30,7 @@ function serverCtrl ($routeParams, $http, $location) {
       url       : '/register',
       data      : sCtrl.newUser
     }) .then(function(response){
+      $location.url('/aboutus');
       console.log(response);
     });
   }
@@ -89,13 +90,13 @@ function serverCtrl ($routeParams, $http, $location) {
   }
 
 //controller to input recipe data in profile page
-  sCtrl.getCreatorRecipe = function(){
+  sCtrl.getCreatorRecipe = function(id){
     $http({
       method   : 'GET',
       url      : '/api/recipes/',
       params  : {
         //these are query string parameters
-        creator: sCtrl.profile._id
+        creator: id
       }
     }) .then(function(response){
       sCtrl.creatorRecipes = response.data;
@@ -108,7 +109,7 @@ function serverCtrl ($routeParams, $http, $location) {
       url     : '/api/me/',
       }) .then(function(response){
       sCtrl.profile = response.data
-      sCtrl.getCreatorRecipe();
+      sCtrl.getCreatorRecipe(sCtrl.profile._id);
     })
   }
 
@@ -178,12 +179,16 @@ function serverCtrl ($routeParams, $http, $location) {
   sCtrl.getFamilies();
   //sCtrl.getApiRecipes();
   //sCtrl.getCreatorRecipe ();
-  sCtrl.profileRecipes();
 
   if($routeParams.id){  //this runs when $routeParams is requested
     sCtrl.getProfile();
     sCtrl.getFamilyPages();
     sCtrl.getFamilyUsers();
+    sCtrl.getCreatorRecipe($routeParams.id);
+  }
+  else{
+    sCtrl.profileRecipes();
+
   }
 }
 

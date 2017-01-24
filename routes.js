@@ -37,7 +37,7 @@ module.exports = (app) =>{
     app.post('/register', Auth.create);   // register form submission
 
     // app.get('/home.html', Auth.session);
-    app.use(express.static('public'));
+    // app.use(express.static('public'));
 
 
 
